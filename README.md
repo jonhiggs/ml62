@@ -30,7 +30,7 @@ pinout goes like this.
 | PIN | 27 | 25 | 23 | 21 | 19 | 17 | 15| 13| 11|  9 | 7 | 5 | 3 | 1 |
 |-----|----|----|----|----|----|----|---|---|---|----|---|---|---|---|
 |     |GND | C12| C11| C10| C9 | C8 | C7| C6| C5| C4 | C3| C2| C1| C0|
-|     |OC13| L1 | L2 | +5v| C15| C14| R7| R6| R5| R4 | R3| R2| R1| R0|
+|     |OC13| L1 | L2 | 5v | C15| C14| R7| R6| R5| R4 | R3| R2| R1| R0|
 
 `GND` connects to USB Shield  
 `L1` is Scroll Lock LED  
