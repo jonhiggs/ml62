@@ -1,17 +1,7 @@
 ML62 keyboard firmware
 ======================
 Taking a Filco Minila keyboard and turning it into a real 60% Unix keyboard.
-I'm modelling it after these three keyboards.
 
-<!--
-![ADM3A Keyboard](http://www.vintagecomputer.net/LSI/ADM3A/LSI_ADM3A_21818_keyboard.jpg)
-
-![Sun Type 5 Keyboard](http://img387.imageshack.us/img387/7345/suntype5cks2.jpg)
-
-![Happy Hacker](http://www.pfusystems.com/images/hhkb/lite2-top.jpg)
-
-![Apple Keyboard](http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Apple_iMac_Keyboard_A1243.png/1024px-Apple_iMac_Keyboard_A1243.png)
--->
 This is still a work in progress, so I wouldn't recommend you use it yet. If
 you want to anyway, then add this repo as a submodule of
 https://github.com/tmk/tmk_keyboard.git by doing this:
@@ -219,16 +209,3 @@ I'm using a Teensy 3.0 dev board.
 - rC: Right Click
 - vd: Volume Down
 - vu: Volume Up
-
-## NEW CONNECTIONS
-
-
-
-
-
-
-
-
-
-
-
