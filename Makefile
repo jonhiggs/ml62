@@ -63,8 +63,7 @@ CONFIG_H = config.h
 
 # MCU name, you MUST set this to match the board you are using
 # type "make clean" after changing this, so all files will be rebuilt
-MCU = cortex-m4
-
+MCU = mk20dx128
 
 # Processor frequency.
 #   Normally the first thing your program should do is set the clock prescaler,
