@@ -41,16 +41,16 @@
 # Target file name (without extension).
 TARGET = ml62_pjrc
 
-# Directory common source filess exist
+# Directory common source files exist
 TOP_DIR = ../..
 
 # Directory keyboard dependent files exist
 TARGET_DIR = .
 
 # project specific files
-SRC =	keymap_common.c \
-	matrix.c \
-	led.c
+SRC = keymap_common.c \
+    matrix.c \
+    led.c
 
 ifdef KEYMAP
     SRC := keymap_$(KEYMAP).c $(SRC)
