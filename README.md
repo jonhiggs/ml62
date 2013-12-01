@@ -12,6 +12,17 @@ I'm modelling it after these three keyboards.
 
 ![Apple Keyboard](http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Apple_iMac_Keyboard_A1243.png/1024px-Apple_iMac_Keyboard_A1243.png)
 -->
+This is still a work in progress, so I wouldn't recommend you use it yet. If
+you want to anyway, then add this repo as a submodule of
+https://github.com/tmk/tmk_keyboard.git by doing this:
+
+```Shell
+        git clone https://github.com/tmk/tmk_keyboard.git /path/to/repo
+        cd /path/to/repo
+        git submodule add https://github.com/jonhiggs/ml62.git keyboards/ml62
+        git submodule init
+        git submodule update
+```
 
 ## Feature List
 - Real Unix Layout using Vi and Emacs shortcuts.
