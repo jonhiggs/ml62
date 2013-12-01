@@ -26,11 +26,11 @@ https://github.com/tmk/tmk_keyboard.git by doing this:
 The keyboard has 28 pins which it interfaces with the original controller. The
 pinout goes like this.
 
-|PIN|28  |26 |24 |22 |20 |18 |16|14|12|10| 8| 6| 4| 2|
-|PIN|27  |25 |23 |21 |19 |17 |15|13|11| 9| 7| 5| 3| 1|
-|---|----|---|---|---|---|---|--|--|--|--|--|--|--|--|
-|   |GND |C12|C11|C10|C9 |C8 |C7|C6|C5|C4|C3|C2|C1|C0|
-|   |OC13| L1| L2|+5v|C15|C14|R7|R6|R5|R4|R3|R2|R1|R0|
+|PIN| 28 | 26 | 24 | 22 | 20 | 18 | 16| 14| 12| 10 | 8 | 6 | 4 | 2 |
+|PIN| 27 | 25 | 23 | 21 | 19 | 17 | 15| 13| 11|  9 | 7 | 5 | 3 | 1 |
+|---|----|----|----|----|----|----|---|---|---|----|---|---|---|---|
+|   |GND | C12| C11| C10| C9 | C8 | C7| C6| C5| C4 | C3| C2| C1| C0|
+|   |OC13| L1 | L2 | +5v| C15| C14| R7| R6| R5| R4 | R3| R2| R1| R0|
 
 `GND` connects to USB Shield  
 `L1` is Scroll Lock LED  
@@ -63,16 +63,16 @@ changes are as follows:
 | WIN_L        | ALT_L     | 
 
 #### 2.2.3 Original Layout
-| Row | C0         | C1         | C2        | C3 | C4 | C5 | C6            | C7 | C8            | C9      | C10       | C11         | C12          | 0C13 | C14          | C15       |
-| --- | ---------- | ---------- | --------- | -- | -- | -- | ------------- | -- | ------------- | ------- | --------- | ----------- | ------------ | ---  | ------------ | --------- |
-| R0  |            | Q          | W         | E  | R  | U  | I             | O  | P             |         |           |             |              |      |              |           |
-| R1  |            | TAB        | CONTROL_L |    | T  | Y  | SLASH         |    | BRACKET_LEFT  |         | BACKQUOTE |             |              | ALT  |              | SHIFT_L   |
-| R2  |            | A          | S         | D  | F  | J  | K             | L  | SEMICOLON     | FN      | DELETE    |             |              |      | CURSOR_UP    |           |
-| R3  |            | ESCAPE     |           |    | G  | H  |               |    | QUOTE         | COMMAND |           | SPACE       |              |      |              |           |
-| R4  |            | Z          | X         | C  | V  | M  | COMMA         | DOT|               |         | RETURN    |             |              |      |              |           |
-| R5  |            |            |           |    | B  | N  |               |    | FORWARD_SLASH |         |           | CURSOR_DOWN | CURSOR_RIGHT |      | CURSOR_LEFT  |           |
-| R6  | CAPSLOCK   |            |           |    | 5  | 6  | EQUAL         |    | MINUS         |         |           |             |              |      |              |           |
-| R7  |            | 1          | 2         | 3  | 4  | 7  | 8             | 9  | 0             |         |           |             |              |      |              |           |
+| Row | C0         | C1         | C2        | C3 | C4 | C5 | C6            | C7  | C8            | C9      | C10       | C11         | C12          | 0C13 | C14          | C15       |
+| --- | ---------- | ---------- | --------- | -- | -- | -- | ------------- | --- | ------------- | ------- | --------- | ----------- | ------------ | ---- | ------------ | --------- |
+| R0  |            | Q          | W         | E  | R  | U  | I             | O   | P             |         |           |             |              |      |              |           |
+| R1  |            | TAB        | CONTROL_L |    | T  | Y  | SLASH         |     | BRACKET_LEFT  |         | BACKQUOTE |             |              | ALT  |              | SHIFT_L   |
+| R2  |            | A          | S         | D  | F  | J  | K             | L   | SEMICOLON     | FN      | DELETE    |             |              |      | CURSOR_UP    |           |
+| R3  |            | ESCAPE     |           |    | G  | H  |               |     | QUOTE         | COMMAND |           | SPACE       |              |      |              |           |
+| R4  |            | Z          | X         | C  | V  | M  | COMMA         | DOT |               |         | RETURN    |             |              |      |              |           |
+| R5  |            |            |           |    | B  | N  |               |     | FORWARD_SLASH |         |           | CURSOR_DOWN | CURSOR_RIGHT |      | CURSOR_LEFT  |           |
+| R6  | CAPSLOCK   |            |           |    | 5  | 6  | EQUAL         |     | MINUS         |         |           |             |              |      |              |           |
+| R7  |            | 1          | 2         | 3  | 4  | 7  | 8             | 9   | 0             |         |           |             |              |      |              |           |
 
 #### 2.2.3 New Layout
 | Row    | C0 + C1  | C2        | C3 | C4 | C5 | C6 + C14      | C7 + OC13 | C8            | C9 + C12 + C15 | C10 + C11   |
