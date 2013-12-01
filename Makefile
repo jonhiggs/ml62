@@ -55,7 +55,7 @@ SRC = keymap_common.c \
 ifdef KEYMAP
     SRC := keymap_$(KEYMAP).c $(SRC)
 else
-    SRC := keymap_poker.c $(SRC)
+    SRC := keymap_plain.c $(SRC)
 endif
 
 CONFIG_H = config.h
@@ -104,12 +104,3 @@ include $(TOP_DIR)/rules.mk
 
 plain: OPT_DEFS += -DKEYMAP_PLAIN
 plain: all
-
-poker: OPT_DEFS += -DKEYMAP_POKER
-poker: all
-
-poker_set: OPT_DEFS += -DKEYMAP_POKER_SET
-poker_set: all
-
-poker_bit: OPT_DEFS += -DKEYMAP_POKER_BIT
-poker_bit: all
