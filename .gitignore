@@ -1,3 +1,4 @@
 *.sw?
 ml62_lufa.*
 obj_ml62_lufa/
+.dep/
