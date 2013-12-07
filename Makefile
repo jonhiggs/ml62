@@ -39,7 +39,7 @@
 #----------------------------------------------------------------------------
 
 # Target file name (without extension).
-TARGET = ml62_pjrc
+TARGET = ml62_lufa
 
 # Directory common source files exist
 TOP_DIR = ../..
@@ -97,7 +97,7 @@ NKRO_ENABLE = yes       # USB Nkey Rollover(+500)
 VPATH += $(TARGET_DIR)
 VPATH += $(TOP_DIR)
 
-include $(TOP_DIR)/protocol/pjrc.mk
+include $(TOP_DIR)/protocol/lufa.mk
 include $(TOP_DIR)/common.mk
 include $(TOP_DIR)/rules.mk
 
