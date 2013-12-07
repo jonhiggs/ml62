@@ -61,17 +61,10 @@ endif
 CONFIG_H = config.h
 
 
-# MCU name, you MUST set this to match the board you are using
-# type "make clean" after changing this, so all files will be rebuilt
 MCU = atmega32u4
-
-# Processor frequency.
-#   Normally the first thing your program should do is set the clock prescaler,
-#   so your program will run at the correct speed.  You should also set this
-#   variable to same clock speed.  The _delay_ms() macro uses this, and many
-#   examples use this variable to calculate timings.  Do not add a "UL" here.
+BOARD = LEONARDO
 F_CPU = 16000000
-
+ARCH = AVR8
 
 # Boot Section Size in *bytes*
 #   Teensy halfKay   512
