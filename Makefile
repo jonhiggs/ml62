@@ -64,6 +64,7 @@ CONFIG_H = config.h
 MCU = atmega32u4
 BOARD = LEONARDO
 F_CPU = 16000000
+F_USB = 16000000
 ARCH = AVR8
 
 # Boot Section Size in *bytes*
