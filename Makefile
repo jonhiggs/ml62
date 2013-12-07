@@ -63,21 +63,21 @@ CONFIG_H = config.h
 
 # MCU name, you MUST set this to match the board you are using
 # type "make clean" after changing this, so all files will be rebuilt
-MCU = mk20dx128
+MCU = mega32u4
 
 # Processor frequency.
 #   Normally the first thing your program should do is set the clock prescaler,
 #   so your program will run at the correct speed.  You should also set this
 #   variable to same clock speed.  The _delay_ms() macro uses this, and many
 #   examples use this variable to calculate timings.  Do not add a "UL" here.
-F_CPU = 24000000
+F_CPU = 16000000
 
 
 # Boot Section Size in *bytes*
 #   Teensy halfKay   512
 #   Atmel DFU loader 4096
 #   LUFA bootloader  4096
-OPT_DEFS += -DBOOTLOADER_SIZE=512
+OPT_DEFS += -DBOOTLOADER_SIZE=4096
 
 
 # Build Options
