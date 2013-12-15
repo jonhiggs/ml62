@@ -136,79 +136,81 @@ uint8_t matrix_key_count(void)
 
 /* Column pin configuration
  * col: 0   1   2   3   4   5   6   7   8   9
- * pin: 8   9   10  11  12  A0  A1  A2  A3  A4
+ * pin: 8   11  10  9   2   1
  */
 static void  init_cols(void)
 {
-    //DDRB == pins 8-13
-    //DDRC == pins A0-A5
     // Input with pull-up(DDR:0, PORT:1)
-    DDRB  &= ~(1<<0 | 1<<1 | 1<< 2 | 1<<3 | 1<<4);
-    PORTB |=  (1<<0 | 1<<1 | 1<< 2 | 1<<3 | 1<<4);
-    DDRC  &= ~(1<<0 | 1<<1 | 1<< 2 | 1<<3 | 1<<4);
-    PORTC |=  (1<<0 | 1<<1 | 1<< 2 | 1<<3 | 1<<4);
+    //DDRB  &= ~(1<<7 | 1<<6 | 1<<4 | 1<<5 | 1<<0);
+    //PORTB |=  (1<<7 | 1<<6 | 1<<4 | 1<<5 | 1<<0);
+    DDRD  &= ~(1<<1 | 1<<2 | 1<<3 | 1<<5);
+    PORTD |=  (1<<1 | 1<<2 | 1<<3 | 1<<6);
+
+    DDRB  &= ~0b11111111;
+    PORTB |=  0b11111111;
 }
 
 static matrix_row_t read_cols(void)
+// PINB Bit 3 doesn't go anywhere.
+// PINB Bit 2 doesn't go anywhere.
+// PINB Bit 1 doesn't go anywhere.
+// PINB Bit 0 doesn't go anywhere.
+
+// PIND Bit 4 doesn't go anywhere.
+// PIND Bit 5 doesn't go anywhere.
+// PIND Bit 6 doesn't go anywhere.
+// PIND Bit 7 ???
+
+// PINC Bit 0 Does weird shit until i connect PIND Bit 0 to PIND Bit 7. Possibly others.
+// PINC Bit 1 Does weird shit
+// PINC Bit 2 Does weird shit
+// PINC Bit 3 Does weird shit
+// PINC Bit 4 Does weird shit
+// PINC Bit 5 Does weird shit
+
+
 {
-    return (PINB&(1<<0) ? 0 : (1<<0)) |
-           (PINB&(1<<1) ? 0 : (1<<1)) |
-           (PINB&(1<<2) ? 0 : (1<<2)) |
-           (PINB&(1<<3) ? 0 : (1<<3)) |
-           (PINB&(1<<4) ? 0 : (1<<4)) |
-           (PINC&(1<<0) ? 0 : (1<<5)) |
-           (PINC&(1<<1) ? 0 : (1<<6)) |
-           (PINC&(1<<2) ? 0 : (1<<7)) |
-           (PINC&(1<<3) ? 0 : (1<<8)) |
-           (PINC&(1<<4) ? 0 : (1<<9));
+    return (PINB&(1<<4) ? 0 : (1<<0)) |
+           (PINB&(1<<7) ? 0 : (1<<1)) |
+           (PINB&(1<<6) ? 0 : (1<<2)) |
+           (PINB&(1<<5) ? 0 : (1<<3)) |
+           (PIND&(1<<1) ? 0 : (1<<4)) |
+           (PIND&(1<<2) ? 0 : (1<<5)) |
+           (PIND&(1<<3) ? 0 : (1<<6))
 }
 
 /* Row pin configuration
  * row: 0   1   2   3   4   5   6   7
- * pin: 0   1   2   3   4   5   6   7
+ * pin: 3   
 */
 static void unselect_rows(void)
 {
-    // Hi-Z(DDR:0, PORT:0) to unselect
-    DDRD  &= ~0b11111111;
-    PORTD &= ~0b11111111;
+    DDRD  &= ~0b00000001;
+    PORTD &= ~0b00000001;
 }
 
 static void select_row(uint8_t row)
 {
-    // Output low(DDR:1, PORT:0) to select
     switch (row) {
         case 0:
             DDRD  |= (1<<0);
             PORTD &= ~(1<<0);
             break;
-        case 1:
-            DDRD  |= (1<<1);
-            PORTD &= ~(1<<1);
-            break;
-        case 2:
-            DDRD  |= (1<<2);
-            PORTD &= ~(1<<2);
-            break;
-        case 3:
-            DDRD  |= (1<<3);
-            PORTD &= ~(1<<3);
-            break;
-        case 4:
-            DDRD  |= (1<<4);
-            PORTD &= ~(1<<4);
-            break;
-        case 5:
-            DDRD  |= (1<<5);
-            PORTD &= ~(1<<5);
-            break;
-        case 6:
-            DDRD  |= (1<<6);
-            PORTD &= ~(1<<6);
-            break;
-        case 7:
-            DDRD  |= (1<<7);
-            PORTD &= ~(1<<7);
-            break;
+        //case 1:
+        //    DDRD  |= (1<<1);
+        //    PORTD &= ~(1<<1);
+        //    break;
+        //case 2:
+        //    DDRD  |= (1<<2);
+        //    PORTD &= ~(1<<2);
+        //    break;
+        //case 3:
+        //    DDRD  |= (1<<3);
+        //    PORTD &= ~(1<<3);
+        //    break;
+        //case 4:
+        //    DDRD  |= (1<<5);
+        //    PORTD &= ~(1<<5);
+        //    break;
     }
 }
