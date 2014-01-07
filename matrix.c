@@ -176,7 +176,7 @@ static matrix_row_t read_cols(void)
            (PINB&(1<<5) ? 0 : (1<<3)) |
            (PIND&(1<<1) ? 0 : (1<<4)) |
            (PIND&(1<<2) ? 0 : (1<<5)) |
-           (PIND&(1<<3) ? 0 : (1<<6))
+           (PIND&(1<<3) ? 0 : (1<<6)) ;
 }
 
 /* Row pin configuration
