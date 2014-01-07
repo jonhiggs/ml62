@@ -143,31 +143,14 @@ static void  init_cols(void)
     // Input with pull-up(DDR:0, PORT:1)
     //DDRB  &= ~(1<<7 | 1<<6 | 1<<4 | 1<<5 | 1<<0);
     //PORTB |=  (1<<7 | 1<<6 | 1<<4 | 1<<5 | 1<<0);
-    DDRD  &= ~(1<<1 | 1<<2 | 1<<3 | 1<<5);
-    PORTD |=  (1<<1 | 1<<2 | 1<<3 | 1<<6);
+    DDRB  &= ~(1<<0 | 1<<1 | 1<<2 | 1<<3);
+    PORTB |=  (1<<0 | 1<<1 | 1<<2 | 1<<3);
 
-    DDRB  &= ~0b11111111;
-    PORTB |=  0b11111111;
+    DDRB  &= ~0b00001111;
+    PORTB |=  0b00001111;
 }
 
 static matrix_row_t read_cols(void)
-// PINB Bit 3 doesn't go anywhere.
-// PINB Bit 2 doesn't go anywhere.
-// PINB Bit 1 doesn't go anywhere.
-// PINB Bit 0 doesn't go anywhere.
-
-// PIND Bit 4 doesn't go anywhere.
-// PIND Bit 5 doesn't go anywhere.
-// PIND Bit 6 doesn't go anywhere.
-// PIND Bit 7 ???
-
-// PINC Bit 0 Does weird shit until i connect PIND Bit 0 to PIND Bit 7. Possibly others.
-// PINC Bit 1 Does weird shit
-// PINC Bit 2 Does weird shit
-// PINC Bit 3 Does weird shit
-// PINC Bit 4 Does weird shit
-// PINC Bit 5 Does weird shit
-
 
 {
     return (PINB&(1<<4) ? 0 : (1<<0)) |
@@ -185,32 +168,36 @@ static matrix_row_t read_cols(void)
 */
 static void unselect_rows(void)
 {
-    DDRD  &= ~0b00000001;
-    PORTD &= ~0b00000001;
+    DDRF  &= ~0b11110011;
+    PORTF &= ~0b11110011;
 }
 
 static void select_row(uint8_t row)
 {
     switch (row) {
         case 0:
-            DDRD  |= (1<<0);
-            PORTD &= ~(1<<0);
+            DDRF  |= (1<<0);
+            PORTF &= ~(1<<0);
             break;
-        //case 1:
-        //    DDRD  |= (1<<1);
-        //    PORTD &= ~(1<<1);
-        //    break;
-        //case 2:
-        //    DDRD  |= (1<<2);
-        //    PORTD &= ~(1<<2);
-        //    break;
-        //case 3:
-        //    DDRD  |= (1<<3);
-        //    PORTD &= ~(1<<3);
-        //    break;
-        //case 4:
-        //    DDRD  |= (1<<5);
-        //    PORTD &= ~(1<<5);
-        //    break;
+        case 1:
+            DDRF  |= (1<<1);
+            PORTF &= ~(1<<1);
+            break;
+        case 2:
+            DDRF  |= (1<<4);
+            PORTF &= ~(1<<4);
+            break;
+        case 3:
+            DDRF  |= (1<<5);
+            PORTF &= ~(1<<5);
+            break;
+        case 4:
+            DDRF  |= (1<<6);
+            PORTF &= ~(1<<6);
+            break;
+        case 5:
+            DDRF  |= (1<<7);
+            PORTF &= ~(1<<7);
+            break;
     }
 }
