@@ -78,7 +78,8 @@ changes are as follows:
 
 #### 2.2.3 New Layout
 
-| Row    | C0 + C1  | C2        | C3 | C4 | C5 | C6 + C14      | C7 + OC13 | C8            | C9 + C12 + C15 | C10 + C11   |
+| New    | C0       | C1        | C2 | C3 | C4 | C5            | C6        | C7            | C8             | C9          |
+| Old    | C0 + C1  | C2        | C3 | C4 | C5 | C6 + C14      | C7 + OC13 | C8            | C9 + C12 + C15 | C10 + C11   |
 |--------|----------|-----------|----|----|----|---------------|-----------|---------------|----------------|-------------|
 | **R0** | Q        | W         | E  | R  | U  | I             | O         | P             |                |             |
 | **R1** | TAB      | CONTROL_L |    | T  | Y  | SLASH         | ALT       | BRACKET_LEFT  | SHIFT_L        | BACKQUOTE   |
@@ -91,24 +92,38 @@ changes are as follows:
 
 
 ### 2.3 The Teensy Controller
-I'm using a Teensy 3.0 dev board.
+I'm using a Teensy 2.0 dev board.
 
-| Keyboard Pin | Teensy PIN | Teensy PIN | Keyboard Pin |
-| ------------ | ---------- | ---------- | ------------ |
-| 28           | GND        | Vin        | 21           |
-| 1            | 0          | AGND       |              |
-| 3            | 1          | 3.3V       |              |
-| 5            | 2          | A9         |  2    4      |
-| 7            | 3          | A7         |  6           |
-| 9            | 4          | A7         |  8           |
-| 11           | 5          | A6         |  10          |
-| 13           | 6          | A5         |  12          |
-| 15           | 7          | A4         |  14  17      |
-|              | 8          | A3         |  16  27      |
-|              | 9          | A2         |  18          |
-|              | 10         | A1         |  19  20  26  |
-| 23           | 11         | A0         |  22  24      |
-| 25           | 12         | 13         |              |
+| Matrix Pos | Teensy Pin | Teensy Pin | Matrix Pos | 
+| ---------- | ---------- | ---------- | ---------- | 
+|            | GND        | Vcc        | GND        | 
+| C0         | PB0        | PF0        | R0         | 
+| C1         | PB1        | PF1        | R1         | 
+| C2         | PB2        | PF4        | R2         | 
+| C3         | PB3        | PF5        | R3         | 
+| C4         | PD0        | PF6        | R4         | 
+| C5         | PD1        | PF7        | R5         | 
+| C6         | PD2        |            |            | 
+| C7         | PD3        |            |            | 
+| C8         | PC6        |            |            | 
+| C9         | PC7        |            |            | 
+
+| Keyboard Pin | Matrix Row | Teensy PIN | Teensy PIN | Keyboard Pin |
+| ------------ | ---------- | ---------- | ---------- | ------------ |
+| 28           |            | GND        | Vin        | 21           |
+| 1            | R0         |            |            |              |
+| 3            |            |            |            |              |
+| 5            |            |            |            |  2    4      |
+| 7            |            |            |            |  6           |
+| 9            |            |            |            |  8           |
+| 11           |            |            |            |  10          |
+| 13           |            |            |            |  12          |
+| 15           |            |            |            |  14  17      |
+|              |            |            |            |  16  27      |
+|              |            |            |            |  18          |
+|              |            |            |            |  19  20  26  |
+| 23           |            |            |            |  22  24      |
+| 25           |            |            |            |              |
 
 
 
