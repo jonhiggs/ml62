@@ -179,6 +179,8 @@ static void unselect_rows(void)
 {
     DDRF  &= ~0b11110011;
     PORTF &= ~0b11110011;
+    DDRB  &= ~0b01100000;
+    PORTB &= ~0b01100000;
 }
 
 static void select_row(uint8_t row)
@@ -207,6 +209,14 @@ static void select_row(uint8_t row)
         case 5:
             DDRF  |= (1<<7);
             PORTF &= ~(1<<7);
+            break;
+        case 6:
+            DDRB  |= (1<<6);
+            PORTB &= ~(1<<6);
+            break;
+        case 7:
+            DDRB  |= (1<<5);
+            PORTB &= ~(1<<5);
             break;
     }
 }

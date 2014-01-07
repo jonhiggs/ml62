@@ -96,15 +96,15 @@ I'm using a Teensy 2.0 dev board.
 
 | Matrix Pos | Teensy Pin | Teensy Pin | Matrix Pos | 
 | ---------- | ---------- | ---------- | ---------- | 
-|            | GND        | Vcc        | GND        | 
+|            | GND        | Vcc        |            | 
 | C0         | PB0        | PF0        | R0         | 
 | C1         | PB1        | PF1        | R1         | 
 | C2         | PB2        | PF4        | R2         | 
 | C3         | PB3        | PF5        | R3         | 
 | C4         | PD0        | PF6        | R4         | 
 | C5         | PD1        | PF7        | R5         | 
-| C6         | PD2        |            |            | 
-| C7         | PD3        |            |            | 
+| C6         | PD2        | PB6        | R6         | 
+| C7         | PD3        | PB5        | R7         | 
 | C8         | PC6        |            |            | 
 | C9         | PC7        |            |            | 
 
