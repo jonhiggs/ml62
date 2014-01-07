@@ -90,6 +90,18 @@ changes are as follows:
 | **R6** | CAPSLOCK |           |    | 5  | 6  | EQUAL         |           | MINUS         |                |             |
 | **R7** | 1        | 2         | 3  | 4  | 7  | 8             | 9         | 0             |                |             |
 
+      R0      R1      R2      R3      R4      R5      R6      R7
+C0    Q       TAB     A       ESC     Z               CAPS    1
+C1    W       CTRL    S               X                       2
+C2    E               D               C       B               3
+C3    R       T       F       G       V       N       5       4
+C4    U       Y       J       H       M       LEFT    6       7
+C5    I       \       K               ,               =       8
+C6    O       ALT     L               .       /               9
+C7    P       [       ;       '               RIGHT   -       0
+C8            SHIFT   FN      CMD             DOWN
+C9            `       DEL     SPACE   ENTER
+
 
 ### 2.3 The Teensy Controller
 I'm using a Teensy 2.0 dev board.
@@ -97,16 +109,16 @@ I'm using a Teensy 2.0 dev board.
 | Matrix Pos | Teensy Pin | Teensy Pin | Matrix Pos | 
 | ---------- | ---------- | ---------- | ---------- | 
 |            | GND        | Vcc        |            | 
-| C0         | PB0        | PF0        | R0         | 
-| C1         | PB1        | PF1        | R1         | 
-| C2         | PB2        | PF4        | R2         | 
-| C3         | PB3        | PF5        | R3         | 
-| C4         | PD0        | PF6        | R4         | 
-| C5         | PD1        | PF7        | R5         | 
-| C6         | PD2        | PB6        | R6         | 
-| C7         | PD3        | PB5        | R7         | 
-| C8         | PC6        |            |            | 
-| C9         | PC7        |            |            | 
+| R0         | PB0        | PF0        | C0         | 
+| R1         | PB1        | PF1        | C1         | 
+| R2         | PB2        | PF4        | C2         | 
+| R3         | PB3        | PF5        | C3         | 
+| R4         | PD0        | PF6        | C4         | 
+| R5         | PD1        | PF7        | C5         | 
+| R6         | PD2        | PB6        | C6         | 
+| R7         | PD3        | PB5        | C7         | 
+|            |            | PB4        | C8         | 
+|            |            | PD7        | C9         | 
 
 | Keyboard Pin | Matrix Row | Teensy PIN | Teensy PIN | Keyboard Pin |
 | ------------ | ---------- | ---------- | ---------- | ------------ |
