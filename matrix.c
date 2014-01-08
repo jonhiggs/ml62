@@ -179,8 +179,8 @@ static void unselect_rows(void)
     PORTF &= ~0b11110011;
     DDRB  &= ~0b01110000;
     PORTB &= ~0b01110000;
-    DDRD  &= ~0b01000000;
-    PORTD &= ~0b01000000;
+    DDRD  &= ~0b10000000;
+    PORTD &= ~0b10000000;
 }
 
 static void select_row(uint8_t row)
