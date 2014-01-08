@@ -215,6 +215,14 @@ static void select_row(uint8_t row)
             PORTB &= ~(1<<6);
             break;
         case 7:
+            DDRB  |= (1<<5);
+            PORTB &= ~(1<<5);
+            break;
+        case 8:
+            DDRB  |= (1<<4);
+            PORTB &= ~(1<<4);
+            break;
+        case 9:
             DDRD  |= (1<<7);
             PORTD &= ~(1<<7);
             break;
