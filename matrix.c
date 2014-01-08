@@ -148,10 +148,8 @@ static void  init_cols(void)
 
     DDRB  &= ~0b10001111;
     PORTB |=  0b10001111;
-    DDRD  &= ~0b00001111;
-    PORTD |=  0b00001111;
-    DDRC  &= ~0b01000000;
-    PORTC |=  0b01000000;
+    DDRD  &= ~0b00000111;
+    PORTD |=  0b00000111;
 }
 
 static matrix_row_t read_cols(void)
@@ -164,9 +162,7 @@ static matrix_row_t read_cols(void)
            (PINB&(1<<7) ? 0 : (1<<4)) |
            (PIND&(1<<0) ? 0 : (1<<5)) |
            (PIND&(1<<1) ? 0 : (1<<6)) |
-           (PIND&(1<<2) ? 0 : (1<<7)) |
-           (PIND&(1<<3) ? 0 : (1<<8)) |
-           (PINC&(1<<6) ? 0 : (1<<9));
+           (PIND&(1<<2) ? 0 : (1<<7));
 }
 
 /* Row pin configuration
