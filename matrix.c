@@ -141,15 +141,17 @@ uint8_t matrix_key_count(void)
 static void  init_cols(void)
 {
     // Input with pull-up(DDR:0, PORT:1)
-    DDRB  &= ~(1<<0 | 1<<1 | 1<<2 | 1<<3 | 1<<7);
-    PORTB |=  (1<<0 | 1<<1 | 1<<2 | 1<<3 | 1<<7);
-    DDRD  &= ~(1<<0 | 1<<1 | 1<<2 | 1<<3);
-    PORTD |=  (1<<0 | 1<<1 | 1<<2);
+    //DDRB  &= ~(1<<0 | 1<<1 | 1<<2 | 1<<3 | 1<<7);
+    //PORTB |=  (1<<0 | 1<<1 | 1<<2 | 1<<3 | 1<<7);
+    //DDRD  &= ~(1<<0 | 1<<1 | 1<<2 | 1<<3);
+    //PORTD |=  (1<<0 | 1<<1 | 1<<2);
 
     DDRB  &= ~0b10001111;
     PORTB |=  0b10001111;
     DDRD  &= ~0b00001111;
-    PORTD |=  0b00000111;
+    PORTD |=  0b00001111;
+    DDRC  &= ~0b01000000;
+    PORTC |=  0b01000000;
 }
 
 static matrix_row_t read_cols(void)
