@@ -1,6 +1,26 @@
-ML62 keyboard firmware
+ML62 Portable Computer
 ======================
-Taking a Filco Minila keyboard and turning it into a real 60% Unix keyboard.
+
+Taking a Filco Minila keyboard and turning it into a portable Linux
+Keyboard/Computer.
+
+The goals I have for this project are as follows:
+
+- Real Unix Layout using Vi and Emacs shortcuts.
+- Mouse Control from the keyboard.
+- Use a layout that suits a Linux system nicely.
+- Install a full powered computer within the keyboard chassis.
+- Keyboard should be able to be used as a regular keyboard, disconnecting the
+  interal computer.
+- Small enough to fit into my small backpack (Eagle Industries - Yote).
+- Support multiple displays.
+- Support an SSD and a spinning disk.
+
+Some things that are initially true, but may change in the future.
+
+- No screen.
+- No batteries.
+- Only support Linux.
 
 This is still a work in progress, so I wouldn't recommend you use it yet. If
 you want to anyway, then add this repo as a submodule of
@@ -14,18 +34,17 @@ https://github.com/tmk/tmk_keyboard.git by doing this:
         git submodule update
 ```
 
-## Feature List
-- Real Unix Layout using Vi and Emacs shortcuts.
-- Mouse Control.
-- OS X Special Keys.
+## 1. Overview
 
-
+### Goals
 ## 2. Hardware
+- Teensy 2.0
+- Filco Minila
+- Intel NUC motherboard
 
 ### 2.1 Keyboard Pins
 The keyboard has 28 pins which it interfaces with the original controller. The
 pinout goes like this.
-
 
 | PIN | 28 | 26 | 24 | 22 | 20 | 18 | 16| 14| 12| 10 | 8 | 6 | 4 | 2 |
 |-----|----|----|----|----|----|----|---|---|---|----|---|---|---|---|
@@ -42,7 +61,6 @@ pinout goes like this.
 I've removed some keys from my keyboard so they have been also removed from
 this table. The keys I've removed are:
 
-- Right Function
 - Right App
 - Right Command
 - Right Shift
