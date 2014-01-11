@@ -53,18 +53,3 @@ extern const uint16_t fn_actions[];
 }
 
 #endif
-
-/*
-
-| Row    | C0 + C1  | C2        | C3 | C4 | C5 | C6 + C14      | C7 + OC13 | C8            | C9 + C12 + C15 | C10 + C11   |
-|--------|----------|-----------|----|----|----|---------------|-----------|---------------|----------------|-------------|
-| **R0** | Q        | W         | E  | R  | U  | I             | O         | P             |                |             |
-| **R1** | TAB      | CONTROL_L |    | T  | Y  | SLASH         | ALT       | BRACKET_LEFT  | SHIFT_L        | BACKQUOTE   |
-| **R2** | A        | S         | D  | F  | J  | K             | L         | SEMICOLON     | FN             | DELETE      |
-| **R3** | ESCAPE   |           |    | G  | H  |               |           | QUOTE         | COMMAND        | SPACE       |
-| **R4** | Z        | X         | C  | V  | M  | COMMA         | DOT       |               |                | RETURN      |
-| **R5** |          |           |    | B  | N  | CURSOR_LEFT   |           | FORWARD_SLASH | CURSOR_RIGHT   | CURSOR_DOWN |
-| **R6** | CAPSLOCK |           |    | 5  | 6  | EQUAL         |           | MINUS         |                |             |
-| **R7** | 1        | 2         | 3  | 4  | 7  | 8             | 9         | 0             |                |             |
-
-*/
