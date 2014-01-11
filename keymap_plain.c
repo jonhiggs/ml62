@@ -32,7 +32,7 @@ const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
 //  [1] = ACTION_LAYER_MOMENTARY(2),          // FN1 switch to layer 2
 
-    [1] = ACTION_MODS_TAP_TOGGLE(MOD_LSHT), // Tap shift to turn into Caps Lock
+    [1] = ACTION_MODS_TAP_TOGGLE(MOD_LSFT), // Tap shift to turn into Caps Lock
 };
 
 
