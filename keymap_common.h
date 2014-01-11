@@ -45,7 +45,7 @@ extern const uint16_t fn_actions[];
     { KC_##K13, KC_##K41, KC_##K23, KC_##K3B  KC_##K33, KC_##K4C, KC_NO,    KC_##K03 }, \
     { KC_##K14, KC_##K15, KC_##K24, KC_##K25, KC_##K34, KC_##K35, KC_##K05, KC_##K04 }, \
     { KC_##K17, KC_##K16, KC_##K27, KC_##K26, KC_##K37, KC_##K36, KC_##K06, KC_##K07 }, \
-    { KC_##K18, KC_##K0C, KC_##K28, KC_NO,    KC_##K38, KC_NO,    KC_##K0C, KC_##K08 }, \
+    { KC_##K18, KC_##K1C, KC_##K28, KC_NO,    KC_##K38, KC_NO,    KC_##K0C, KC_##K08 }, \
     { KC_##K19, KC_##K30, KC_##K29, KC_NO,    KC_##K39, KC_NO,    KC_NO,    KC_##K09 }, \
     { KC_##K1A, KC_##K1B, KC_##K2A, KC_##K2B, KC_NO,    KC_##K3A, KC_##K0B, KC_##K0A }, \
     { KC_##K45, KC_NO,    KC_##K43, KC_##K42, KC_NO,    KC_NO,    KC_NO,    KC_NO    }, \
