@@ -254,9 +254,30 @@ compressed the matrix before.
 
 ## 2.0 The firmware.
 
-### 2.1 Building the matrix
+TODO
 
-### 2.2 Assigning default keys
+### 2.1 Setting the Teensy Pins.
+
+See [matrix.c](../matrix.c).
+
+### 2.2 Assigning Teensy pins to the matrix.
+
+See [keymap_common.h](../keymap_common.h).
+
+### 2.2 Assigning keys to the buttons
+
+There is a default set of key assignments in the repo. You can use those
+assignments if you like, but I'm going to describe how it works so that you can
+modify it to your own liking.
+
+#### 2.2.1 The default keymap
+
+The default keymap is the layer that is used when there is no layer switching
+going on. 
+
+See [keymap_plain.c](../keymap_plain.c).
+
+
 
 ### 2.3 Building the layers
 
