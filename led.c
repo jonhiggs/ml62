@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <avr/io.h>
 #include "stdint.h"
+
 #include "led.h"
 
 /* LED pin configuration
@@ -27,7 +28,7 @@ void led_set(uint8_t usb_led)
     // Set as output.
     DDRC |= (1<<6);
 
-    if (usb_led & (1<<USB_LED_CAPS_LOCK))
+    if (usb_led & (0<<USB_LED_CAPS_LOCK))
     {
         // Output low.
         PORTC &= ~(1<<6);
