@@ -182,43 +182,43 @@ static void unselect_rows(void)
 static void select_row(uint8_t row)
 {
     switch (row) {
-        case 0:
+        case 9:
             DDRF  |= (1<<0);
             PORTF &= ~(1<<0);
             break;
-        case 1:
+        case 8:
             DDRF  |= (1<<1);
             PORTF &= ~(1<<1);
             break;
-        case 2:
+        case 7:
             DDRF  |= (1<<4);
             PORTF &= ~(1<<4);
             break;
-        case 3:
+        case 6:
             DDRF  |= (1<<5);
             PORTF &= ~(1<<5);
             break;
-        case 4:
+        case 5:
             DDRF  |= (1<<6);
             PORTF &= ~(1<<6);
             break;
-        case 5:
+        case 4:
             DDRF  |= (1<<7);
             PORTF &= ~(1<<7);
             break;
-        case 6:
+        case 3:
             DDRB  |= (1<<6);
             PORTB &= ~(1<<6);
             break;
-        case 7:
+        case 2:
             DDRB  |= (1<<5);
             PORTB &= ~(1<<5);
             break;
-        case 8:
+        case 1:
             DDRB  |= (1<<4);
             PORTB &= ~(1<<4);
             break;
-        case 9:
+        case 0:
             DDRD  |= (1<<7);
             PORTD &= ~(1<<7);
             break;
