@@ -19,12 +19,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "stdint.h"
 #include "led.h"
 
-
+/* LED pin configuration
+ * Caps Lock: Low PB0
+ */
 void led_set(uint8_t usb_led)
 {
-    if (usb_led & (1<<USB_LED_CAPS_LOCK)) {
+    // Set as output.
+    DDRC |= (1<<6);
+
+    if (usb_led & (1<<USB_LED_CAPS_LOCK))
+    {
+        // Output low.
         PORTC &= ~(1<<6);
-    } else {
-        PORTC |= ~(1<<6);
+    }
+    else
+    {
+        // Output high.
+        PORTC |= (1<<6);
     }
 }
+
