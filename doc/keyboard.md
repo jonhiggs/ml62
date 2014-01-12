@@ -170,6 +170,10 @@ This is what the compressed matrix looks like.
 |**9**       | K45 |     | K43 | K42 |     |     |     |     |
 |**10**      |     | K0E | K1D |     | K2C |     |     |     |
 
+Now it's time to get out the soldering iron and physically connect those rows
+up. So start by finding a C1 and a C12 on the circuit board and short them out.
+Then continue for the rest.
+
 From now on, I'll refer to the rows like this.
 
 |      |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |
@@ -184,10 +188,6 @@ From now on, I'll refer to the rows like this.
 |**7** | K1A | K1B | K2A | K2B |     | K3A | K0B | K0A |
 |**8** | K45 |     | K43 | K42 |     |     |     |     |
 |**9** |     | K0E | K1D |     | K2C |     |     |     |
-
-Now it's time to get out the soldering iron and physically connect those rows
-up. So start by finding a C1 and a C12 on the circuit board and short them out.
-Then continue for the rest.
 
 ### 1.3 Patching up to the original circuit board.
 
