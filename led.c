@@ -28,15 +28,13 @@ void led_set(uint8_t usb_led)
     // Set as output.
     DDRC |= (1<<6);
 
-    if (usb_led & (0<<USB_LED_CAPS_LOCK))
+    if (usb_led & (1<<USB_LED_CAPS_LOCK))
     {
-        // Output low.
-        PORTC &= ~(1<<6);
+        PORTC |= (1<<6);
     }
     else
     {
-        // Output high.
-        PORTC |= (1<<6);
+        PORTC &= ~(1<<6);
     }
 }
 
