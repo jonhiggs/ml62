@@ -54,5 +54,4 @@ https://github.com/tmk/tmk_keyboard.git by doing this:
 
 1. [Hacking The Keyboard](./doc/keyboard.md)
 2. Building The Chassis
-3. Installing The Computer
-4. Keyboard-Only Mode
+3. Keyboard-Only Mode
