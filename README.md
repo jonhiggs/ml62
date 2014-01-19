@@ -3,6 +3,12 @@ ML62 Portable Computer
 
 ## 1. Overview
 
+![Top](./doc/photos/DSC03629.jpg)
+![Front](./doc/photos/DSC03628.jpg)
+![Right](./doc/photos/DSC03631.jpg)
+![Left](./doc/photos/DSC03632.jpg)
+
+
 Taking a Filco Minila keyboard and turning it into a portable Linux
 Keyboard/Computer.
 
