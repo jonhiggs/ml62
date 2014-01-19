@@ -46,6 +46,9 @@ https://github.com/tmk/tmk_keyboard.git by doing this:
 - Teensy 2.0
 - Filco Minila
 - Intel NUC motherboard
+- Samsung Evo 840 250GB mSATA
+- 1TB Mechanical Disk
+- Intel Centrino Advanced-N 6235 Wifi Adapter.
 
 ## 3. Table of contents
 
