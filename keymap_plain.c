@@ -14,14 +14,14 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       NO,NO,  NO,  END ,NO,  NO,  NO,  PGUP,NO,  NO,  NO,  NO,  NO,  DELETE,  \
       NO,HOME,NO,  PGDN,NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,           \
       NO,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,                \
-      NO,NO,  NO,  FN0, FN12,NO,  NO,  NO,  NO                                \
+      NO,NO,  NO,  FN1, FN12,NO,  NO,  NO,  NO                                \
     ),
     KEYMAP(   // LAYER 2: Mouse
       NO  ,F14,F15,NO, NO,NO, NO,  MPRV,MPLY,MNXT,MUTE,VOLD,VOLU,NO,NO, \
       NO  ,NO,NO,NO, NO,NO, NO,  BTN1,BTN3,BTN2,NO,  NO,  NO,  NO,    \
       NO  ,NO,NO,NO, NO,NO, MS_L,MS_D,MS_U,MS_R,NO,  NO,  NO,       \
       CAPS,NO,NO,NO, NO,NO, NO,  NO,  NO,  NO,  NO,  NO,          \
-      NO  ,NO,NO,FN0,NO,FN1,NO,  NO,  NO                        \
+      NO  ,NO,NO,FN1,NO,FN2,NO,  NO,  NO                        \
     ),
 };
 
