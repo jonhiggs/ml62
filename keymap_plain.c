@@ -38,10 +38,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 /* id for user defined functions */
-enum function_id {
+enum macro_id {
     LSHIFT_ESC,
 };
-
 
 /*
  * Fn action definition
@@ -50,39 +49,26 @@ const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
     [1] = ACTION_LAYER_MOMENTARY(3),          // FN1 switch to layer 3
 //  [2] = ACTION_LAYER_MOMENTARY(2),          // FN2 switch to layer 2
-    [10] = ACTION_FUNCTION_TAP(LSHIFT_ESC),   // Function: RShift with tap ')'
+    [10] = ACTION_MACRO_TAP(LSHIFT_ESC),   // Function: RShift with tap ')'
 };
 
 /*
- * user defined action function
+ * Macro definition
  */
-void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
-  keyevent_t event = record->event;
-  tap_t tap = record->tap;
+    keyevent_t event = record->event;
+    tap_t tap = record->tap;
 
-  switch (id) {
-    case LSHIFT_ESC:
-      // LShft + tap 'ESC'
-      // NOTE: cant use register_code to avoid conflicting with magic key bind
-      if (event.pressed) {
-        if (tap.count == 0 || tap.interrupted) {
-          //add_mods(MOD_BIT(KC_LSHIFT));
-          layer_on(2);
+    switch (id) {
+      case LSHIFT_ESC:
+        if (tap.count > 0 && !tap.interrupted) {
+          return (event.pressed ?
+              MACRO( D(LSHIFT), D(GRV), U(GRV), U(LSHIFT), END ) : MACRO_NONE);
         } else {
-          add_mods(MOD_BIT(KC_LSHIFT));
-          add_key(KC_GRV);
-          send_keyboard_report();
-          del_mods(MOD_BIT(KC_LSHIFT));
-          del_key(KC_GRV);
-          send_keyboard_report();
+          return (event.pressed ?
+              MACRO( D(LSHIFT), END ) : MACRO( U(LSHIFT), END ) );
         }
-      } else {
-        if (tap.count == 0 || tap.interrupted) {
-          //del_mods(MOD_BIT(KC_LSHIFT));
-          layer_off(2);
-        }
-      }
-      break;
-  }
+    }
+    return MACRO_NONE;
 }
