@@ -63,7 +63,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
     switch (id) {
       case LSHIFT_ESC:
         if (tap.count > 0 && !tap.interrupted) {
-          if (keyboard_report->mods == MOD_BIT(KC_LSHIFT)) {
+          if (MOD_BIT(KC_LSHIFT)) {
             return (
               // if LSHIFT is pressed then send a ~
               event.pressed ? MACRO( D(LSHIFT), D(GRV), U(GRV), U(LSHIFT), END ) : MACRO_NONE
