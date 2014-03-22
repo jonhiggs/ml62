@@ -1,7 +1,6 @@
 #include "keymap_common.h"
 
 // TODO
-// ctrl-space to send space
 // media keys
 
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -14,18 +13,18 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       NLCK,LALT,LGUI,FN0, FN11,       FN1,                        LEFT,DOWN,RGHT
     ),
     KEYMAP(   // LAYER 1: Function
-      NO,  F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,NO,  NO,    \
-      NO,  NO,  NO,  END ,NO,  NO,  NO,  PGUP,NO,  NO,  NO,  NO,  NO,  DELETE,     \
-      NO,  HOME,NO,  PGDN,NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,              \
-      CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,                   \
-      NO,  NO,  NO,  FN0, NO,  NO,  NO,  NO,  NO                                   \
+      NO,  F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,NO,  NO, \
+      NO,  NO,  NO,  END ,NO,  NO,  NO,  PGUP,NO,  NO,  NO,  NO,  NO,  DELETE,  \
+      NO,  HOME,NO,  PGDN,NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,           \
+      CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,                \
+      NO,  NO,  NO,  FN0, NO,  NO,  NO,  NO,  NO                                \
     ),
-    KEYMAP(   // LAYER 3: Mouse
-      NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,   \
-      NO,  NO,  NO,  NO,  NO,  NO,  NO,  BTN1,BTN3,BTN2,NO,  NO,  NO,  NO,         \
-      NO,  NO,  NO,  NO,  NO,  NO,  MS_L,MS_D,MS_U,MS_R,NO,  NO,  NO,              \
-      NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,                   \
-      NO,  NO,  NO,  FN0, NO,  FN1, NO,  NO,  NO                                   \
+    KEYMAP(   // LAYER 2: Mouse
+      NO,NO,NO,NO, NO,NO, NO,  KC_MPRV,KC_MPLY,KC_MNXT,NO,NO,NO,NO,NO, \
+      NO,NO,NO,NO, NO,NO, NO,  BTN1,   BTN3,   BTN2,   NO,NO,NO,NO,    \
+      NO,NO,NO,NO, NO,NO, MS_L,MS_D,   MS_U,   MS_R,   NO,NO,NO,       \
+      NO,NO,NO,NO, NO,NO, NO,  NO,     NO,     NO,     NO,NO,          \
+      NO,NO,NO,FN0,NO,FN1,NO,  NO,     NO                              \
     ),
 };
 
