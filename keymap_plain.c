@@ -40,7 +40,7 @@ enum function_id {
  */
 const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
-    [1] = ACTION_LAYER_MOMENTARY(3),          // FN1 switch to layer 3
+    [1] = ACTION_LAYER_MOMENTARY(2),          // FN1 switch to layer 2
     [10] = ACTION_FUNCTION(ESC),              // Special ESC key.
     [11] = ACTION_FUNCTION(SPACE),            // Special Space Key.
 };
