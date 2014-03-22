@@ -49,7 +49,7 @@ const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
     [1] = ACTION_LAYER_MOMENTARY(3),          // FN1 switch to layer 3
 //  [2] = ACTION_LAYER_MOMENTARY(2),          // FN2 switch to layer 2
-    [10] = ACTION_MACRO_TAP(LSHIFT_ESC),   // Function: RShift with tap ')'
+    [10] = ACTION_MACRO(LSHIFT_ESC),   // Function: RShift with tap ')'
 };
 
 /*
@@ -62,22 +62,16 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 
     switch (id) {
       case LSHIFT_ESC:
-        if (tap.count > 0 && !tap.interrupted) {
-          if (MOD_BIT(KC_LSHIFT)) {
-            return (
-              // if LSHIFT is pressed then send a ~
-              event.pressed ? MACRO( D(LSHIFT), D(GRV), U(GRV), U(LSHIFT), END ) : MACRO_NONE
-            );
-          } else {
-            return (
-              // if LSHIFT is not pressed then send an ESC
-              event.pressed ? MACRO( D(ESC), U(ESC), END ) : MACRO_NONE
-            );
-          }
-
+        if (MOD_BIT(KC_LSHIFT)) {
+          return (
+            // if LSHIFT is pressed then send a ~
+            event.pressed ? MACRO( D(LSHIFT), D(GRV), U(GRV), U(LSHIFT), END ) : MACRO_NONE
+          );
         } else {
-          return (event.pressed ?
-              MACRO( D(LSHIFT), END ) : MACRO( U(LSHIFT), END ) );
+          return (
+            // if LSHIFT is not pressed then send an ESC
+            event.pressed ? MACRO( D(ESC), U(ESC), END ) : MACRO_NONE
+          );
         }
     }
     return MACRO_NONE;
