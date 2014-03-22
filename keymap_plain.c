@@ -39,7 +39,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* id for user defined functions */
 enum function_id {
-    LSHIFT_ESC,
+    ESC,
 };
 
 /*
@@ -49,7 +49,7 @@ const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
     [1] = ACTION_LAYER_MOMENTARY(3),          // FN1 switch to layer 3
 //  [2] = ACTION_LAYER_MOMENTARY(2),          // FN2 switch to layer 2
-    [10] = ACTION_FUNCTION(LSHIFT_ESC),   // Function: RShift with tap ')'
+    [10] = ACTION_FUNCTION(ESC),              // Function: RShift with tap ')'
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
@@ -58,9 +58,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
   tap_t tap = record->tap;
 
   switch (id) {
-    case LSHIFT_ESC:
-      // LShft + tap '('
-      // NOTE: cant use register_code to avoid conflicting with magic key bind
+    case ESC:
       if (event.pressed) {
         if (get_mods(MOD_BIT(KC_LSHIFT))) {
           add_key(KC_GRV);
