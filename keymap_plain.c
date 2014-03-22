@@ -68,7 +68,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
               // if LSHIFT is pressed then send a ~
               event.pressed ? MACRO( D(LSHIFT), D(GRV), U(GRV), U(LSHIFT), END ) : MACRO_NONE
             );
-          else
+          } else {
             return (
               // if LSHIFT is not pressed then send an ESC
               event.pressed ? MACRO( D(ESC), U(ESC), END ) : MACRO_NONE
