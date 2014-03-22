@@ -76,7 +76,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         // if control is pressed, release it before sending a space.
         if (get_mods(MOD_BIT(KC_LCTRL))) {
           del_mods(MOD_BIT(KC_LCTRL));
-          add_key(SPC);
+          add_key(KC_SPC);
           send_keyboard_report();
           add_mods(MOD_BIT(KC_LCTRL));
           send_keyboard_report();
@@ -86,7 +86,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         }
       } else {
         // release the keys.
-        del_key(SPC);
+        del_key(KC_SPC);
         send_keyboard_report();
       }
       break;
