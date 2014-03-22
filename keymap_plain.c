@@ -21,7 +21,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,                   \
       NO,  NO,  NO,  FN0, NO,  NO,  NO,  NO,  NO                                   \
     ),
-    KEYMAP(   // LAYER 2: Shift # DISABLED
+    KEYMAP(   // LAYER 2: Shift
       GRV ,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
       TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,       \
       TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,            \
@@ -45,28 +45,18 @@ const uint16_t PROGMEM fn_actions[] = {
     [1] = ACTION_LAYER_MOMENTARY(3),          // FN1 switch to layer 3
 //  [2] = ACTION_LAYER_MOMENTARY(2),          // FN2 switch to layer 2
 
+    [10] = ACTION_MACRO_TAP(LSHIFT_ESC),      // Macro: RShift with tap ')'
+
 };
 
-/*
- * Macro definition
- */
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-  keyevent_t event = record->event;
-  tap_t tap = record->tap;
+/* id for user defined functions */
+enum function_id {
+    LSHIFT_ESC,
+};
 
-  switch (id) {
-    case LSHIFT_ESC:
-      if (tap.count > 0 && !tap.interrupted) {
-        return (event.pressed ?
-          MACRO( D(LSHIFT), D(9), U(9) U(LSHIFT), END ) : MACRO_NONE);
-      } else {
-        return (event.pressed ?
-          MACRO( D(LSHIFT), END ) : MACRO( U(LSHIFT), END ) );
-      }
-  }
-  return MACRO_NONE;
-}
+enum macro_id {
+    LSHIFT_ESC,
+};
 
 /*
  * user defined action function
@@ -78,12 +68,12 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 
   switch (id) {
     case LSHIFT_ESC:
-      // LShft + tap '('
+      // LShft + tap 'ESC'
       // NOTE: cant use register_code to avoid conflicting with magic key bind
       if (event.pressed) {
         if (tap.count == 0 || tap.interrupted) {
           //add_mods(MOD_BIT(KC_LSHIFT));
-          layer_on(1);
+          layer_on(2);
         } else {
           add_mods(MOD_BIT(KC_LSHIFT));
           add_key(KC_GRV);
@@ -95,7 +85,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
       } else {
         if (tap.count == 0 || tap.interrupted) {
           //del_mods(MOD_BIT(KC_LSHIFT));
-          layer_off(1);
+          layer_off(2);
         }
       }
       break;
