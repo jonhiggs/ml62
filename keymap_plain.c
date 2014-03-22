@@ -1,5 +1,10 @@
 #include "keymap_common.h"
 
+// TODO
+// ctrl-space to send space
+// media keys
+// shift-esc to send ~
+
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 0: plain */
     KEYMAP(   // LAYER 0: Default
