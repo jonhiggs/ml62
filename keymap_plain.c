@@ -54,14 +54,14 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         if (get_mods(MOD_BIT(KC_LSHIFT))) {
           add_key(KC_GRV);
           send_keyboard_report();
-          del_key(KC_GRV);
-          send_keyboard_report();
         } else {
           add_key(KC_ESC);
           send_keyboard_report();
-          del_key(KC_ESC);
-          send_keyboard_report();
         }
+      } else {
+        del_key(KC_GRV);
+        del_key(KC_ESC);
+        send_keyboard_report();
       }
       break;
   }
