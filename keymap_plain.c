@@ -52,31 +52,6 @@ const uint16_t PROGMEM fn_actions[] = {
     [10] = ACTION_FUNCTION(LSHIFT_ESC),   // Function: RShift with tap ')'
 };
 
-/*
- * Macro definition
- */
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-    keyevent_t event = record->event;
-    tap_t tap = record->tap;
-
-    switch (id) {
-      case LSHIFT_ESC:
-        //if (MOD_BIT(KC_LSHIFT)) {
-          return (
-            // if LSHIFT is pressed then send a ~
-            event.pressed ? MACRO( D(LSHIFT), D(GRV), U(GRV), U(LSHIFT), END ) : MACRO_NONE
-          );
-        //} else {
-        //  return (
-        //    // if LSHIFT is not pressed then send an ESC
-        //    event.pressed ? MACRO( D(ESC), U(ESC), END ) : MACRO_NONE
-        //  );
-        //}
-    }
-    return MACRO_NONE;
-}
-
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
   keyevent_t event = record->event;
