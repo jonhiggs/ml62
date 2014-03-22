@@ -87,7 +87,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
       // LShft + tap '('
       // NOTE: cant use register_code to avoid conflicting with magic key bind
       if (event.pressed) {
-        if (MOD_BIT(KC_LSHIFT)) {
+        if (KC_LSHIFT.pressed) {
           add_key(KC_GRV);
           send_keyboard_report();
           del_key(KC_GRV);
