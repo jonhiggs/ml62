@@ -45,7 +45,8 @@ const uint16_t PROGMEM fn_actions[] = {
     [1] = ACTION_LAYER_MOMENTARY(3),          // FN1 switch to layer 3
 //  [2] = ACTION_LAYER_MOMENTARY(2),          // FN2 switch to layer 2
 
-    [10] = ACTION_MACRO_TAP(LSHIFT_ESC),      // Macro: RShift with tap ')'
+    [10] = ACTION_FUNCTION_TAP(LSHIFT_ESC),   // Function: RShift with tap ')'
+
 
 };
 
