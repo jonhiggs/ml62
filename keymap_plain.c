@@ -7,7 +7,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC, BSPC,    \
       LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT, ENT,           \
       LSFT,     Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,      UP,       \
-      NLCK,LALT,LGUI,FN0, FN11,       FN1,                        LEFT,DOWN,RGHT
+      NLCK,LALT,LGUI,FN1, FN11,       FN2,                        LEFT,DOWN,RGHT
     ),
     KEYMAP(   // LAYER 1: Function
       NO,  F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,NO,  NO, \
@@ -36,8 +36,8 @@ enum function_id {
  * Fn action definition
  */
 const uint16_t PROGMEM fn_actions[] = {
-    [0] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
-    [1] = ACTION_LAYER_MOMENTARY(2),          // FN1 switch to layer 2
+    [1] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
+    [2] = ACTION_LAYER_MOMENTARY(2),          // FN1 switch to layer 2
     [10] = ACTION_FUNCTION(ESC),              // Special ESC key.
     [11] = ACTION_FUNCTION(SPACE),            // Special Space Key.
     [12] = ACTION_FUNCTION(SPOTLIGHT),        // Special Space Key.
