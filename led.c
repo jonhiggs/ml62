@@ -21,20 +21,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "led.h"
 
 /* LED pin configuration
- * Caps Lock: Low PB0
+ * Caps Lock: Low PB4
  */
 void led_set(uint8_t usb_led)
 {
     // Set as output.
-    DDRC |= (1<<6);
+    DDRB |= (1<<4);
 
     if (usb_led & (1<<USB_LED_CAPS_LOCK))
     {
-        PORTC |= (1<<6);
+        PORTB |= (1<<4);
     }
     else
     {
-        PORTC &= ~(1<<6);
+        PORTB &= ~(1<<4);
     }
 }
 
