@@ -91,7 +91,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 
     case SPOTLIGHT:
       if (event.pressed) {
-        add_mod(MOD_BIT(KC_LGUI));
+        add_mods(MOD_BIT(KC_LGUI));
         add_key(KC_SPC);
         send_keyboard_report();
         del_mods(MOD_BIT(KC_LGUI));
