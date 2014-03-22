@@ -81,7 +81,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
           add_mods(MOD_BIT(KC_LCTRL));
           send_keyboard_report();
         } else {
-          add_key(SPC);
+          add_key(KC_SPC);
           send_keyboard_report();
         }
       } else {
