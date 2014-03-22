@@ -10,11 +10,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       NLCK,LALT,LGUI,FN0, SPC,         FN1,                        LEFT,DOWN,RGHT
     ),
     KEYMAP(   // LAYER 1: Function
-      TRNS,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,TRNS,TRNS,  \
-      TRNS,TRNS,TRNS,END ,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,TRNS,TRNS,DELETE,     \
-      TRNS,HOME,TRNS,TRNS,TRNS,TRNS,LEFT,DOWN,UP  ,RGHT,TRNS,TRNS,TRNS,            \
-      CAPS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,TRNS,TRNS,TRNS,TRNS,                 \
-      TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS                                 \
+      NO,  F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,NO,  NO,    \
+      NO,  NO,  NO,  END ,NO,  NO,  NO,  NO,  NO,  NO,  PGUP,NO,  NO,  DELETE,     \
+      NO,  HOME,NO,  NO,  NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,              \
+      CAPS,NO,  NO,  NO,  NO,  NO,  PGDN,NO,  NO,  NO,  NO,  NO,                   \
+      NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO                                   \
     ),
     KEYMAP(   // LAYER 2: Shift # DISABLED
       GRV ,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
@@ -24,11 +24,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS                                 \
     ),
     KEYMAP(   // LAYER 3: Mouse
-      TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
-      TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTN1,BTN3,BTN2,TRNS,TRNS,TRNS,TRNS,       \
-      TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,MS_L,MS_D,MS_U,MS_R,TRNS,TRNS,TRNS,            \
-      TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,TRNS,TRNS,TRNS,TRNS,                 \
-      TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS                                 \
+      NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,   \
+      NO,  NO,  NO,  NO,  NO,  NO,  NO,  BTN1,BTN3,BTN2,NO,  NO,  NO,  NO,         \
+      NO,  NO,  NO,  NO,  NO,  NO,  MS_L,MS_D,MS_U,MS_R,NO,  NO,  NO,              \
+      NO,  NO,  NO,  NO,  NO,  NO,  PGDN,NO,  NO,  NO,  NO,  NO,                   \
+      NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO                                   \
     ),
 };
 
