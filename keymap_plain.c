@@ -20,11 +20,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       NO,  NO,  NO,  FN0, NO,  NO,  NO,  NO,  NO                                \
     ),
     KEYMAP(   // LAYER 2: Mouse
-      NO,NO,NO,NO, NO,NO, NO,  KC_MPRV,KC_MPLY,KC_MNXT,NO,NO,NO,NO,NO, \
-      NO,NO,NO,NO, NO,NO, NO,  BTN1,   BTN3,   BTN2,   NO,NO,NO,NO,    \
-      NO,NO,NO,NO, NO,NO, MS_L,MS_D,   MS_U,   MS_R,   NO,NO,NO,       \
-      NO,NO,NO,NO, NO,NO, NO,  NO,     NO,     NO,     NO,NO,          \
-      NO,NO,NO,FN0,NO,FN1,NO,  NO,     NO                              \
+      NO,NO,NO,NO, NO,NO, NO,  MPRV,MPLY,MNXT,NO,NO,NO,NO,NO, \
+      NO,NO,NO,NO, NO,NO, NO,  BTN1,BTN3,BTN2,NO,NO,NO,NO,    \
+      NO,NO,NO,NO, NO,NO, MS_L,MS_D,MS_U,MS_R,NO,NO,NO,       \
+      NO,NO,NO,NO, NO,NO, NO,  NO,  NO,  NO,  NO,NO,          \
+      NO,NO,NO,FN0,NO,FN1,NO,  NO,  NO                        \
     ),
 };
 
