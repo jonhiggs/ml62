@@ -8,7 +8,7 @@
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 0: plain */
     KEYMAP(   // LAYER 0: Default
-      ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS, EQL, BSLS, GRV,\
+      FN10,1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS, EQL, BSLS, GRV,\
       TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC, BSPC,    \
       LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT, ENT,           \
       LSFT,     Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,      UP,       \
@@ -61,10 +61,20 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
     tap_t tap = record->tap;
 
     switch (id) {
-      case LSHIFT_ESC:
+      case SHIFT_ESC:
         if (tap.count > 0 && !tap.interrupted) {
-          return (event.pressed ?
-              MACRO( D(LSHIFT), D(GRV), U(GRV), U(LSHIFT), END ) : MACRO_NONE);
+          if keyboard_report->mods == MOD_BIT(KC_LSHIFT) {
+            return (
+              // if LSHIFT is pressed then send a ~
+              event.pressed ? MACRO( D(LSHIFT), D(GRV), U(GRV), U(LSHIFT), END ) : MACRO_NONE
+            );
+          else
+            return (
+              // if LSHIFT is not pressed then send an ESC
+              event.pressed ? MACRO( D(ESC), U(ESC), END ) : MACRO_NONE
+            );
+          }
+
         } else {
           return (event.pressed ?
               MACRO( D(LSHIFT), END ) : MACRO( U(LSHIFT), END ) );
