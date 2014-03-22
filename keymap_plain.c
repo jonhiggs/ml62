@@ -72,13 +72,12 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         // press the keys
 
         // if control is pressed, release it before sending a space.
+        // FIXME: MOD_BIT(KC_LCTRL) seems to be true with any mod.
         if (get_mods(MOD_BIT(KC_LCTRL))) {
           del_mods(MOD_BIT(KC_LCTRL));
           add_key(KC_SPC);
           send_keyboard_report();
-          add_mods(MOD_BIT(KC_LCTRL));
-          send_keyboard_report();
-        } else {
+         else {
           add_key(KC_SPC);
           send_keyboard_report();
         }
