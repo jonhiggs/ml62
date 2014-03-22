@@ -61,7 +61,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
     tap_t tap = record->tap;
 
     switch (id) {
-      case SHIFT_ESC:
+      case LSHIFT_ESC:
         if (tap.count > 0 && !tap.interrupted) {
           if keyboard_report->mods == MOD_BIT(KC_LSHIFT) {
             return (
