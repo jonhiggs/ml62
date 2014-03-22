@@ -14,6 +14,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       NO,  NO,  NO,  END ,NO,  NO,  NO,  NO,  NO,  NO,  PGUP,NO,  NO,  DELETE,     \
       NO,  HOME,NO,  NO,  NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,              \
       CAPS,NO,  NO,  NO,  NO,  NO,  PGDN,NO,  NO,  NO,  NO,  NO,                   \
+      NO,  NO,  NO,  END ,NO,  NO,  NO,  PGUP,NO,  NO,  NO,  NO,  NO,  DELETE,     \
+      NO,  HOME,NO,  PGDN,NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,              \
+      CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,                   \
       NO,  NO,  NO,  FN0, NO,  NO,  NO,  NO,  NO                                   \
     ),
     KEYMAP(   // LAYER 2: Shift # DISABLED
