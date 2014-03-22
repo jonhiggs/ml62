@@ -1,8 +1,5 @@
 #include "keymap_common.h"
 
-// TODO
-// media keys
-
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 0: plain */
     KEYMAP(   // LAYER 0: Default
@@ -17,7 +14,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       NO,  NO,  NO,  END ,NO,  NO,  NO,  PGUP,NO,  NO,  NO,  NO,  NO,  DELETE,  \
       NO,  HOME,NO,  PGDN,NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,           \
       CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,                \
-      NO,  NO,  NO,  FN0, NO,  NO,  NO,  NO,  NO                                \
+      NO,  NO,  NO,  FN0, FN12,NO,  NO,  NO,  NO                                \
     ),
     KEYMAP(   // LAYER 2: Mouse
       NO,F14,F15,NO, NO,NO, NO,  MPRV,MPLY,MNXT,MUTE,VOLD,VOLU,NO,NO, \
@@ -32,6 +29,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 enum function_id {
     ESC,
     SPACE,
+    SPOTLIGHT,
 };
 
 /*
@@ -42,6 +40,7 @@ const uint16_t PROGMEM fn_actions[] = {
     [1] = ACTION_LAYER_MOMENTARY(2),          // FN1 switch to layer 2
     [10] = ACTION_FUNCTION(ESC),              // Special ESC key.
     [11] = ACTION_FUNCTION(SPACE),            // Special Space Key.
+    [12] = ACTION_FUNCTION(SPOTLIGHT),        // Special Space Key.
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
@@ -85,6 +84,17 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         }
       } else {
         // release the keys.
+        del_key(KC_SPC);
+        send_keyboard_report();
+      }
+      break;
+
+    case SPOTLIGHT:
+      if (event.pressed) {
+        add_mod(MOD_BIT(KC_LGUI));
+        add_key(KC_SPC);
+        send_keyboard_report();
+        del_mods(MOD_BIT(KC_LGUI));
         del_key(KC_SPC);
         send_keyboard_report();
       }
