@@ -38,7 +38,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 /* id for user defined functions */
-enum macro_id {
+enum function_id {
     LSHIFT_ESC,
 };
 
@@ -49,7 +49,7 @@ const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
     [1] = ACTION_LAYER_MOMENTARY(3),          // FN1 switch to layer 3
 //  [2] = ACTION_LAYER_MOMENTARY(2),          // FN2 switch to layer 2
-    [10] = ACTION_MACRO(LSHIFT_ESC),   // Function: RShift with tap ')'
+    [10] = ACTION_FUNCTION(LSHIFT_ESC),   // Function: RShift with tap ')'
 };
 
 /*
@@ -75,4 +75,26 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
         //}
     }
     return MACRO_NONE;
+}
+
+void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+  keyevent_t event = record->event;
+  tap_t tap = record->tap;
+
+  switch (id) {
+    case LSHIFT_ESC:
+      // LShft + tap '('
+      // NOTE: cant use register_code to avoid conflicting with magic key bind
+      if (event.pressed) {
+        //add_mods(MOD_BIT(KC_LSHIFT));
+        add_mods(MOD_BIT(KC_LSHIFT));
+        add_key(KC_ESC);
+        send_keyboard_report();
+        del_mods(MOD_BIT(KC_LSHIFT));
+        del_key(KC_ESC);
+        send_keyboard_report();
+      }
+      break;
+  }
 }
