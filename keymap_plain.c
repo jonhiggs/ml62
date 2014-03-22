@@ -54,10 +54,6 @@ enum function_id {
     LSHIFT_ESC,
 };
 
-enum macro_id {
-    LSHIFT_ESC,
-};
-
 /*
  * user defined action function
  */
