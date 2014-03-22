@@ -37,6 +37,12 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+/* id for user defined functions */
+enum function_id {
+    LSHIFT_ESC,
+};
+
+
 /*
  * Fn action definition
  */
@@ -44,15 +50,7 @@ const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
     [1] = ACTION_LAYER_MOMENTARY(3),          // FN1 switch to layer 3
 //  [2] = ACTION_LAYER_MOMENTARY(2),          // FN2 switch to layer 2
-
     [10] = ACTION_FUNCTION_TAP(LSHIFT_ESC),   // Function: RShift with tap ')'
-
-
-};
-
-/* id for user defined functions */
-enum function_id {
-    LSHIFT_ESC,
 };
 
 /*
