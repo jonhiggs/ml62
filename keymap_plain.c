@@ -11,9 +11,6 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     KEYMAP(   // LAYER 1: Function
       NO,  F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,NO,  NO,    \
-      NO,  NO,  NO,  END ,NO,  NO,  NO,  NO,  NO,  NO,  PGUP,NO,  NO,  DELETE,     \
-      NO,  HOME,NO,  NO,  NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,              \
-      CAPS,NO,  NO,  NO,  NO,  NO,  PGDN,NO,  NO,  NO,  NO,  NO,                   \
       NO,  NO,  NO,  END ,NO,  NO,  NO,  PGUP,NO,  NO,  NO,  NO,  NO,  DELETE,     \
       NO,  HOME,NO,  PGDN,NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,              \
       CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,                   \
@@ -45,51 +42,57 @@ const uint16_t PROGMEM fn_actions[] = {
 
 };
 
+/*
+ * Macro definition
+ */
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+  keyevent_t event = record->event;
+  tap_t tap = record->tap;
 
-//const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-//    /* 0: Default layer
-//     * ,-----------------------------------------------------------.
-//     * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|  \|  `|
-//     * |-----------------------------------------------------------|
-//     * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|Bspc |
-//     * |-----------------------------------------------------------|
-//     * |Ctrl  |  A|  S|  D|  F|  G|  H|  J|  K|  L|Fn3|  '|Return  |
-//     * |-----------------------------------------------------------|
-//     * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|Shift |Fn |
-//     * |-----------------------------------------------------------|
-//     * |    |Gui |Alt |      Space             |    |Alt |Gui |    |
-//     * `-----------------------------------------------------------'
-//     */
-//    KEYMAP_HHKB(
-//        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS, GRV, \
-//        TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,      \
-//        LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,       \
-//        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,     RSFT,FN0,       \
-//        NO,  LGUI,LALT,          SPC,                     NO,  RALT,RGUI,NO),
-//    /* 1: HHKB Fn layer
-//     * ,-----------------------------------------------------------.
-//     * |Pwr| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
-//     * |-----------------------------------------------------------|
-//     * |Caps |   |   |   |   |   |   |   |Psc|Slk|Pus|Up |   |     |
-//     * |-----------------------------------------------------------|
-//     * |      |VoD|VoU|Mut|Ejc|   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
-//     * |-----------------------------------------------------------|
-//     * |        |   |   |   |   |   |  +|  -|End|PgD|Dow|      |   |
-//     * |-----------------------------------------------------------|
-//     * |    |    |    |                        |    |    |    |    |
-//     * `-----------------------------------------------------------'
-//     */
-//    KEYMAP_HHKB(
-//        PWR, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, INS, DEL,  \
-//        CAPS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PSCR,SLCK,PAUS,UP,  TRNS,TRNS,      \
-//        TRNS,VOLD,VOLU,MUTE,EJCT,TRNS,PAST,PSLS,HOME,PGUP,LEFT,RGHT,     PENT,      \
-//        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PPLS,PMNS,END, PGDN,DOWN,     TRNS,TRNS,      \
-//        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
-//};
-//
-///*
-// * Fn action definition
-// */
-//const uint16_t PROGMEM fn_actions[] = {
-//    [0] = ACTION_LAYER_MOMENTARY(1),
-//};
+  switch (id) {
+    case LSHIFT_ESC:
+      if (tap.count > 0 && !tap.interrupted) {
+        return (event.pressed ?
+          MACRO( D(LSHIFT), D(9), U(9) U(LSHIFT), END ) : MACRO_NONE);
+      } else {
+        return (event.pressed ?
+          MACRO( D(LSHIFT), END ) : MACRO( U(LSHIFT), END ) );
+      }
+  }
+  return MACRO_NONE;
+}
+
+/*
+ * user defined action function
+ */
+void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+  keyevent_t event = record->event;
+  tap_t tap = record->tap;
+
+  switch (id) {
+    case LSHIFT_ESC:
+      // LShft + tap '('
+      // NOTE: cant use register_code to avoid conflicting with magic key bind
+      if (event.pressed) {
+        if (tap.count == 0 || tap.interrupted) {
+          //add_mods(MOD_BIT(KC_LSHIFT));
+          layer_on(1);
+        } else {
+          add_mods(MOD_BIT(KC_LSHIFT));
+          add_key(KC_GRV);
+          send_keyboard_report();
+          del_mods(MOD_BIT(KC_LSHIFT));
+          del_key(KC_GRV);
+          send_keyboard_report();
+        }
+      } else {
+        if (tap.count == 0 || tap.interrupted) {
+          //del_mods(MOD_BIT(KC_LSHIFT));
+          layer_off(1);
+        }
+      }
+      break;
+  }
+}
