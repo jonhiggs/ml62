@@ -11,7 +11,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC, BSPC,    \
       LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT, ENT,           \
       LSFT,     Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,      UP,       \
-      NLCK,LALT,LGUI,FN0, SPC,         FN1,                        LEFT,DOWN,RGHT
+      NLCK,LALT,LGUI,FN0, FN11,       FN1,                        LEFT,DOWN,RGHT
     ),
     KEYMAP(   // LAYER 1: Function
       NO,  F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,NO,  NO,    \
@@ -32,6 +32,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* id for user defined functions */
 enum function_id {
     ESC,
+    SPACE,
 };
 
 /*
@@ -40,7 +41,8 @@ enum function_id {
 const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
     [1] = ACTION_LAYER_MOMENTARY(3),          // FN1 switch to layer 3
-    [10] = ACTION_FUNCTION(ESC),              // Function: RShift with tap ')'
+    [10] = ACTION_FUNCTION(ESC),              // Special ESC key.
+    [11] = ACTION_FUNCTION(SPACE),            // Special Space Key.
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
@@ -51,6 +53,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
   switch (id) {
     case ESC:
       if (event.pressed) {
+        // press the keys
         if (get_mods(MOD_BIT(KC_LSHIFT))) {
           add_key(KC_GRV);
           send_keyboard_report();
@@ -59,8 +62,31 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
           send_keyboard_report();
         }
       } else {
+        // release the keys.
         del_key(KC_GRV);
         del_key(KC_ESC);
+        send_keyboard_report();
+      }
+      break;
+
+    case SPACE:
+      if (event.pressed) {
+        // press the keys
+
+        // if control is pressed, release it before sending a space.
+        if (get_mods(MOD_BIT(KC_LCTRL))) {
+          del_mods(MOD_BIT(KC_LCTRL))
+          add_key(SPC);
+          send_keyboard_report();
+          add_mods(MOD_BIT(KC_LCTRL))
+          send_keyboard_report();
+        } else {
+          add_key(SPC);
+          send_keyboard_report();
+        }
+      } else {
+        // release the keys.
+        del_key(SPC);
         send_keyboard_report();
       }
       break;
