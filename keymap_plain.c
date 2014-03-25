@@ -57,8 +57,8 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         if (get_mods() & MOD_LCTL) {
           del_mods(MOD_BIT(KC_LCTRL));
           add_key(KC_BSPC);
-          add_mods(MOD_BIT(KC_LCTRL));
           send_keyboard_report();
+          add_mods(MOD_BIT(KC_LCTRL));
         } else {
           add_key(KC_H);
           send_keyboard_report();
