@@ -5,7 +5,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(   // LAYER 0: Default
       FN10,1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS, EQL, BSLS, GRV,\
       TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC, BSPC,    \
-      LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT, ENT,           \
+      LCTL,A,   S,   D,   F,   G,FN13,   J,   K,   L,   SCLN,QUOT, ENT,           \
       LSFT,     Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,      UP,       \
       NLCK,LALT,LGUI,FN1, FN11,       FN2,                        LEFT,DOWN,RGHT
     ),
@@ -27,6 +27,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* id for user defined functions */
 enum function_id {
+    BACKSPACE,
     ESC,
     SPACE,
     SPOTLIGHT,
@@ -36,11 +37,12 @@ enum function_id {
  * Fn action definition
  */
 const uint16_t PROGMEM fn_actions[] = {
-    [1] = ACTION_LAYER_MOMENTARY(1),          // FN0 switch to layer 1
-    [2] = ACTION_LAYER_MOMENTARY(2),          // FN1 switch to layer 2
+    [1] = ACTION_LAYER_MOMENTARY(1),          // FN1 switch to layer 1
+    [2] = ACTION_LAYER_MOMENTARY(2),          // FN2 switch to layer 2
     [10] = ACTION_FUNCTION(ESC),              // Special ESC key.
     [11] = ACTION_FUNCTION(SPACE),            // Special Space Key.
-    [12] = ACTION_FUNCTION(SPOTLIGHT),        // Special Space Key.
+    [12] = ACTION_FUNCTION(SPOTLIGHT),        // Special Spotlight Key.
+    [13] = ACTION_FUNCTION(BACKSPACE),        // Special Control Layer.
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
@@ -49,6 +51,27 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
   tap_t tap = record->tap;
 
   switch (id) {
+    case BACKSPACE:
+      if (event.pressed) {
+        // press the keys
+        if (get_mods(MOD_BIT(KC_LCTRL))) {
+          del_mods(MOD_BIT(KC_LCTRL));
+          add_key(KC_BSPC);
+          send_keyboard_report();
+          add_mods(MOD_BIT(KC_LCTRL));
+          send_keyboard_report();
+        } else {
+          add_key(KC_BSPC);
+          send_keyboard_report();
+        }
+      } else {
+        // release the keys.
+        del_key(KC_BSPC);
+        del_key(KC_H);
+        send_keyboard_report();
+      }
+      break;
+
     case ESC:
       if (event.pressed) {
         // press the keys
