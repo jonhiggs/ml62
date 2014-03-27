@@ -25,6 +25,7 @@ User-defined functions.
 | ------------------------- | --------------------------------- | ----------- |
 | alt-b                     | Move back one word                | unix        |
 | alt-f                     | Move forward one word             | unix        |
+| ctrl-a                    | Default key binding               | screen      |
 | ctrl-a                    | Move to start of line             | unix,osx    |
 | ctrl-b                    | Move back one character           | unix        |
 | ctrl-c                    | Break                             | unix        |
@@ -68,7 +69,7 @@ User-defined functions.
 
 | Combo        | Function               | Sends        | Originates | Clashes With        | Fixes    | 
 | ------------ | ---------------------- | ------------ | ---------- | ------------------- | -------- |   
-| fn1-a        | Start of line          | home         | unix       | vim (increment)     | chrome   |  
+| fn1-a        | Start of line          | home         | unix       | vim (increment),screen | chrome   |  
 | fn1-b        | Move to previous letter| ctrl-b       | unix       |                     |          |
 | fn1-c        | Break                  | ctrl-c       | unix       |                     |          |
 | fn1-d        | Page down              | page-down    | less,vim   | unix (forward delete)|         |
