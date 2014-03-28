@@ -39,7 +39,9 @@ User-defined functions.
 | ctrl-l                    | Redraw console                    | unix        |
 | ctrl-m                    | Enter                             | unix        |
 | ctrl-n                    | Next line                         | unix,osx,less,vim    |
+| ctrl-n                    | Next tab                          | irssi |
 | ctrl-p                    | Previous line                     | unix,osx,less,vim    |
+| ctrl-p                    | Previous tab                      | irssi |
 | ctrl-q                    | Continue drawing console          | unix        |
 | ctrl-r                    | Reverse search                    | unix        |
 | ctrl-s                    | Stop drawing console              | unix        |
