@@ -67,16 +67,16 @@ User-defined functions.
 **Function Key:** Fn0  
 **Key Position:** Capslock
 
-| Combo        | Function               | Sends        | Originates | Clashes With        | Fixes    | 
-| ------------ | ---------------------- | ------------ | ---------- | ------------------- | -------- |   
-| fn1-a        | Start of line          | home         | unix       | vim (increment),screen | chrome   |  
+| Combo        | Function               | Sends        | Originates | Clashes With        | Fixes    |
+| ------------ | ---------------------- | ------------ | ---------- | ------------------- | -------- |
+| fn1-a        | Start of line          | home         | unix       | vim (increment),screen | chrome|
 | fn1-b        | Move to previous letter| ctrl-b       | unix       |                     |          |
 | fn1-c        | Break                  | ctrl-c       | unix       |                     |          |
 | fn1-d        | Page down              | page-down    | less,vim   | unix (forward delete)|         |
-| fn1-e        | Move to end of line    | end          | unix       |                     | chrome   |  
+| fn1-e        | Move to end of line    | end          | unix       |                     | chrome   |
 | fn1-f        | Move to next letter    | ctrl-f       | unix       |                     |          |
 | fn1-g        | Show file info         | ctrl-g       | less,vim   |                     |          |
-| fn1-h        | Delete                 | backspace    | unix       |                     | various  |   
+| fn1-h        | Delete                 | backspace    | unix       |                     | various  |
 | fn1-l        | Redraw console         | ctrl-l       | unix       |                     |          |
 | fn1-n        | Next line              | ctrl-n       | unix       |                     |          |
 | fn1-p        | Previous line          | ctrl-p       | unix       |                     |          |
@@ -86,7 +86,7 @@ User-defined functions.
 | fn1-w        | Delete word            | ctrl-w       | unix       |                     |          |
 | fn1-y        | Paste yanked line      | ctrl-y       | unix       |                     |          |
 | ctrl-z       | Background process     | ctrl-z       | unix       |                     |          |
-| fn1-bkspc    | Forward delete         | delete       | ????       |                     |          | 
+| fn1-bkspc    | Forward delete         | delete       | ????       |                     |          |
 | fn1-space    | Ctrl-Space does nothing| space        | n/a        |                     | osx      |
 
 
