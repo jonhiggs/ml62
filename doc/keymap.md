@@ -61,6 +61,7 @@ User-defined functions.
 | Combo                     | Now Sends        | Reason                       |
 | ------------------------- | ---------------- | ---------------------------- |
 | shift-esc                 | shift-grv        | maintaining position of ~    |
+| command-esc               | command-grv      | maintaining command-esc window switching |
 
 ### Control Replacement Layer
 
