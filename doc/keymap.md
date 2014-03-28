@@ -30,6 +30,7 @@ User-defined functions.
 | ctrl-b                    | Move back one character           | unix        |
 | ctrl-c                    | Break                             | unix        |
 | ctrl-d                    | Forward delete                    | unix,osx    |
+| ctrl-d                    | Logout                            | unix        |
 | ctrl-d                    | Page down                         | less,vim    |
 | ctrl-d                    | Stop reading stdin                | unix        |
 | ctrl-e                    | Move to end of line               | unix,osx    |
