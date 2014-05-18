@@ -5,7 +5,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(   // LAYER 0: Default
       FN10,1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS, EQL, BSLS, GRV,\
       TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC, BSPC,    \
-      LCTL,A,   S,   D,   F,   G,FN13,   J,   K,   L,   SCLN,QUOT, ENT,           \
+      LCTL,FN14,S,   D,   F,   G,FN13,   J,   K,   L,   SCLN,QUOT, ENT,           \
       LSFT,     Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,      UP,       \
       NLCK,LGUI,FN1,LALT, FN11,       FN2,                        LEFT,DOWN,RGHT
     ),
@@ -29,6 +29,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 enum function_id {
     BACKSPACE,
     ESC,
+    HOME,
     SPACE,
     SPOTLIGHT,
 };
@@ -42,7 +43,8 @@ const uint16_t PROGMEM fn_actions[] = {
     [10] = ACTION_FUNCTION(ESC),              // Special ESC key.
     [11] = ACTION_FUNCTION(SPACE),            // Special Space Key.
     [12] = ACTION_FUNCTION(SPOTLIGHT),        // Special Spotlight Key.
-    [13] = ACTION_FUNCTION(BACKSPACE),        // Special Control Layer.
+    [13] = ACTION_FUNCTION(BACKSPACE),        // Ctrl-H sends backspace.
+    [14] = ACTION_FUNCTION(HOME),             // Ctrl-A sends home.
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
@@ -85,6 +87,26 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         // release the keys.
         del_key(KC_GRV);
         del_key(KC_ESC);
+        send_keyboard_report();
+      }
+      break;
+
+    case HOME:
+      if (event.pressed) {
+        // press the keys
+        if (get_mods() & MOD_LCTL) {
+          del_mods(MOD_BIT(KC_LCTRL));
+          add_key(KC_HOME);
+          send_keyboard_report();
+          add_mods(MOD_BIT(KC_LCTRL));
+        } else {
+          add_key(KC_A);
+          send_keyboard_report();
+        }
+      } else {
+        // release the keys.
+        del_key(KC_HOME);
+        del_key(KC_A);
         send_keyboard_report();
       }
       break;
