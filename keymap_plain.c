@@ -9,17 +9,17 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       LSFT,     Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,      UP,       \
       NLCK,LGUI,FN1,LALT, FN11,       FN2,                        LEFT,DOWN,RGHT
     ),
-    KEYMAP(   // LAYER 1: Function
+    KEYMAP(   // LAYER 1: Function1
       TRNS,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,NO,  NO, \
       TRNS,NO,  NO,  END ,NO,  NO,  NO,  PGUP,NO,  NO,  NO,  NO,  NO,  DELETE,  \
       TRNS,HOME,NO,  PGDN,NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,           \
       TRNS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,                \
       TRNS,TRNS,TRNS,TRNS,FN12,NO,  NO,  NO,  NO                                \
     ),
-    KEYMAP(   // LAYER 2: Mouse
+    KEYMAP(   // LAYER 2: Function2
       NO  ,F14,F15,NO, NO,NO, NO,  MPRV,MPLY,MNXT,MUTE,VOLD,VOLU,NO,NO, \
-      NO  ,NO,NO,NO, NO,NO, NO,  BTN1,BTN3,BTN2,NO,  NO,  NO,  NO,    \
-      NO  ,NO,NO,NO, NO,NO, MS_L,MS_D,MS_U,MS_R,NO,  NO,  NO,       \
+      NO  ,NO,NO,NO, NO,NO, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,    \
+      NO  ,NO,NO,NO, NO,NO, NO,  NO,  NO,  NO,  NO,  NO,  NO,       \
       CAPS,NO,NO,NO, NO,NO, NO,  NO,  NO,  NO,  NO,  NO,          \
       NO  ,NO,FN1,NO,NO,FN2,NO,  NO,  NO                        \
     ),
