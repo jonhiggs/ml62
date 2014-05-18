@@ -19,9 +19,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(   // LAYER 2: Function2
       NO  ,F14,F15,NO, NO,NO, NO,  MPRV,MPLY,MNXT,MUTE,VOLD,VOLU,NO,NO, \
       NO  ,NO,NO,NO, NO,NO, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,    \
-      NO  ,A, NO,NO, NO,NO, H,   NO,  NO,  NO,  NO,  NO,  NO,       \
+      TRNS,A, NO,NO, NO,NO, H,   NO,  NO,  NO,  NO,  NO,  NO,       \
       CAPS,NO,NO,NO, NO,NO, NO,  NO,  NO,  NO,  NO,  NO,          \
-      NO  ,NO,FN1,NO,NO,FN2,NO,  NO,  NO                        \
+      TRNS,TRNS,FN1,TRNS,TRNS,FN2,NO,  NO,  NO                        \
     ),
 };
 
