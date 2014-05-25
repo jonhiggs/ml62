@@ -14,7 +14,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       TRNS,NO,  NO,  END ,NO,  NO,  NO,  PGUP,NO,  NO,  NO,  NO,  NO,  DELETE,  \
       TRNS,NO,  NO,  PGDN,NO,  NO,  LEFT,DOWN,UP  ,RGHT,NO,  NO,  NO,           \
       TRNS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,                \
-      TRNS,TRNS,TRNS,TRNS,FN12,NO,  NO,  NO,  NO                                \
+      TRNS,TRNS,TRNS,TRNS,SPC ,NO,  NO,  NO,  NO                                \
     ),
     KEYMAP(   // LAYER 2: Function2
       NO  ,F14,F15,NO, NO,NO, NO,  MPRV,MPLY,MNXT,MUTE,VOLD,VOLU,NO,NO, \
@@ -43,7 +43,6 @@ const uint16_t PROGMEM fn_actions[] = {
     [2] = ACTION_LAYER_MOMENTARY(2),          // FN2 switch to layer 2
     [10] = ACTION_FUNCTION(ESC),              // Special ESC key.
     [11] = ACTION_FUNCTION(SPACE),            // Special Space Key.
-    [12] = ACTION_FUNCTION(SPOTLIGHT),        // Special Spotlight Key.
     [13] = ACTION_FUNCTION(BACKSPACE),        // Ctrl-H sends backspace.
     [14] = ACTION_FUNCTION(HOME),             // Ctrl-A sends home.
     [15] = ACTION_FUNCTION(TMUX),             // tmux bind prefix
@@ -127,17 +126,6 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         }
       } else {
         // release the keys.
-        del_key(KC_SPC);
-        send_keyboard_report();
-      }
-      break;
-
-    case SPOTLIGHT:
-      if (event.pressed) {
-        add_mods(MOD_BIT(KC_LGUI));
-        add_key(KC_SPC);
-        send_keyboard_report();
-        del_mods(MOD_BIT(KC_LGUI));
         del_key(KC_SPC);
         send_keyboard_report();
       }
