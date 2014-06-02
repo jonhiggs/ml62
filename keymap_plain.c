@@ -135,6 +135,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
       if (event.pressed) {
         add_mods(MOD_BIT(KC_LALT));
         add_key(KC_COMMA);
+        send_keyboard_report();
         del_key(KC_COMMA);
         del_mods(MOD_BIT(KC_LALT));
         send_keyboard_report();
