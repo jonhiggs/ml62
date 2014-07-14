@@ -161,7 +161,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
           send_keyboard_report();
         }
       } else {
-        del_key(KC_BSPC)
+        del_key(KC_BSPC);
         send_keyboard_report();
       }
       break;
