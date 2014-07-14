@@ -62,6 +62,16 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
           add_key(KC_BSPC);
           send_keyboard_report();
           add_mods(MOD_BIT(KC_LCTRL));
+        } else if (get_mods() & MOD_LALT) {
+          del_mods(MOD_BIT(KC_LALT));
+          add_key(KC_ESC);
+          send_keyboard_report();
+          del_key(KC_ESC);
+          send_keyboard_report();
+          add_key(KC_BSPC);
+          send_keyboard_report();
+          del_key(KC_BSPC);
+          send_keyboard_report();
         } else {
           add_key(KC_H);
           send_keyboard_report();
