@@ -160,6 +160,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         } else if (get_mods(MOD_BIT(KC_LSHIFT))) {
           del_mods(MOD_BIT(KC_LSHIFT));
           add_key(KC_DELETE);
+          add_mods(MOD_BIT(KC_LSHIFT));
           send_keyboard_report();
         } else {
           add_key(KC_BSPC);
