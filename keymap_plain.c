@@ -147,7 +147,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 
     case DEL_WORD:
       if (event.pressed) {
-        if (get_mods() & MOD_LALT) {
+        if (get_mods() & MOD_LALT) {      // TODO: or with shift will allow deleting forward a word.
           del_mods(MOD_BIT(KC_LALT));
           add_key(KC_ESC);
           send_keyboard_report();
