@@ -169,7 +169,6 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         }
       } else {
         del_key(KC_DELETE);
-        del_mods(MOD_BIT(KC_LSHIFT));
         del_key(KC_BSPC);
         send_keyboard_report();
       }
