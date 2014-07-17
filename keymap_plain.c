@@ -157,11 +157,19 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
           send_keyboard_report();
           add_mods(MOD_BIT(KC_LALT));
           send_keyboard_report();
-         } else {
+        } else if (get_mods(MOD_BIT(KC_LSHIFT))) {
+          del_mods(MOD_BIT(KC_LSHIFT));
+          add_key(KC_DELETE);
+          send_keyboard_report();
+          add_mods(MOD_BIT(KC_LSHIFT));
+          send_keyboard_report();
+        } else {
           add_key(KC_BSPC);
           send_keyboard_report();
         }
       } else {
+        del_key(KC_DELETE);
+        del_mods(MOD_BIT(KC_LSHIFT));
         del_key(KC_BSPC);
         send_keyboard_report();
       }
