@@ -4,7 +4,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 0: plain */
     KEYMAP(   // LAYER 0: Default
       FN10,1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS, EQL, BSLS, GRV,\
-      TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC, BSPC,    \
+      TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC, FN16,    \
       LCTL,FN14,S,   D,   F,   G,FN13,   J,   K,   L,   SCLN,QUOT, ENT,           \
       LSFT,     Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,      UP,       \
       FN15,LGUI,FN1,LALT, FN11,       FN2,                        LEFT,DOWN,RGHT
@@ -33,6 +33,7 @@ enum function_id {
     SPACE,
     SPOTLIGHT,
     TMUX,
+    DEL_WORD,
 };
 
 /*
@@ -46,6 +47,7 @@ const uint16_t PROGMEM fn_actions[] = {
     [13] = ACTION_FUNCTION(BACKSPACE),        // Ctrl-H sends backspace.
     [14] = ACTION_FUNCTION(HOME),             // Ctrl-A sends home.
     [15] = ACTION_FUNCTION(TMUX),             // tmux bind prefix
+    [16] = ACTION_FUNCTION(DEL_WORD),         // Alt-Backspace deletes a word.
 };
 
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
@@ -137,7 +139,36 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
         add_key(KC_COMMA);
         send_keyboard_report();
         del_key(KC_COMMA);
+        send_keyboard_report();
         del_mods(MOD_BIT(KC_LALT));
+        send_keyboard_report();
+      }
+      break;
+
+    case DEL_WORD:
+      if (event.pressed) {
+        if (get_mods() & MOD_LALT) {      // TODO: or with shift will allow deleting forward a word.
+          del_mods(MOD_BIT(KC_LALT));
+          add_key(KC_ESC);
+          send_keyboard_report();
+          del_key(KC_ESC);
+          send_keyboard_report();
+          add_key(KC_BSPC);
+          send_keyboard_report();
+          add_mods(MOD_BIT(KC_LALT));
+          send_keyboard_report();
+        } else if (get_mods(MOD_BIT(KC_LSHIFT))) {
+          del_mods(MOD_BIT(KC_LSHIFT));
+          add_key(KC_DELETE);
+          add_mods(MOD_BIT(KC_LSHIFT));
+          send_keyboard_report();
+        } else {
+          add_key(KC_BSPC);
+          send_keyboard_report();
+        }
+      } else {
+        del_key(KC_DELETE);
+        del_key(KC_BSPC);
         send_keyboard_report();
       }
       break;
