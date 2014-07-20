@@ -14,13 +14,12 @@ Hacker](http://www.pfusystems.com/embedded-keyboard/hhkb/index.html) keyboard
 as much as it would allow. However there were some things that I thought could
 be improved so I decided to hack.
 
-I wanted to fix the function layer. Filco, who it seems has
-copied the Happy Hacker, have completely disregarded the old Unix shortcuts
-when they positioned the keys on the Fn layer. There is a long tradition of
-Ctrl-A being Home and Ctrl-E being End. Also Ctrl-D for PgDn and Ctrl-U for
-PgUp. To me, it seams so obvious and ridiculous to make up entirely new
-combinations. I wanted to fix all the quirks and make a real, proper hacker
-keyboard for Unix-like systems.
+I wanted to fix the function layer. Both Filco and Happy Hacker have completely
+disregarded the old Unix shortcuts when they positioned the keys on the Fn
+layer. There is a long tradition of Ctrl-A being Home and Ctrl-E being End.
+Also Ctrl-D for PgDn and Ctrl-U for PgUp. To me, it seams so obvious and
+ridiculous to make up entirely new combinations. I wanted to fix all the quirks
+and make a real, proper hacker keyboard for Unix-like systems.
 
 
 ### 0.1 What Have I Built?
