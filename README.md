@@ -575,6 +575,9 @@ size. You can split your display or have a series of tabs or a combination of
 both. You can background your session and continue on another machine and you
 can share your terminal with multiple users.
 
+[tmux is sweet as heck](http://eev.ee/blog/2012/03/21/tmux-is-sweet-as-heck/)
+is a good overview of the differences between Tmux and Screen.
+
 1. Install it via your system package manager. It should be available.
 2. `tmux` will create a new session and `tmux a` will attach you to an existing
 session.
