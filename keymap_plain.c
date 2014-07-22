@@ -7,7 +7,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC, FN16,    \
       LCTL,FN14,S,   D,   F,   G,FN13,   J,   K,   L,   SCLN,QUOT, ENT,           \
       LSFT,     Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,      UP,       \
-      FN15,LGUI,FN1,LALT, FN11,       FN2,                        LEFT,DOWN,RGHT
+      FN15,FN2,FN1,LGUI,    FN11,     LALT,                        LEFT,DOWN,RGHT
     ),
     KEYMAP(   // LAYER 1: Function1
       TRNS,F1  ,F2  ,F3  ,F4  ,F5  ,F6  ,F7  ,F8  ,F9  ,F10 ,F11 ,F12 ,NO,  NO, \
@@ -21,7 +21,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       NO  ,NO,NO,NO, NO,NO, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,    \
       TRNS,A, NO,NO, NO,NO, H,   NO,  NO,  NO,  NO,  NO,  NO,       \
       CAPS,NO,NO,NO, NO,NO, NO,  NO,  NO,  NO,  NO,  NO,          \
-      TRNS,TRNS,FN1,TRNS,TRNS,FN2,NO,  NO,  NO                        \
+      TRNS,FN2,FN1,TRNS,TRNS,TRNS,NO,  NO,  NO                        \
     ),
 };
 
