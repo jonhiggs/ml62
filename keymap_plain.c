@@ -147,14 +147,24 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 
     case DEL_WORD:
       if (event.pressed) {
-        if (get_mods() & MOD_LALT) {      // TODO: or with shift will allow deleting forward a word.
+        if (get_mods() & MOD_LALT) {
           del_mods(MOD_BIT(KC_LALT));
           add_key(KC_ESC);
           send_keyboard_report();
           del_key(KC_ESC);
           send_keyboard_report();
-          add_key(KC_BSPC);
-          send_keyboard_report();
+          if (get_mods() & MOD_LSFT) {
+            // with shift, forward delete word
+            del_mods(MOD_BIT(KC_LSFT));
+            add_key(KC_D);
+            send_keyboard_report();
+            add_mods(MOD_BIT(KC_LSFT));
+            send_keyboard_report();
+          } else {
+            // without shift, backwards delete word
+            add_key(KC_BSPC);
+            send_keyboard_report();
+          }
           add_mods(MOD_BIT(KC_LALT));
           send_keyboard_report();
         } else if (get_mods() & MOD_LSFT) {
@@ -167,8 +177,9 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
           send_keyboard_report();
         }
       } else {
-        del_key(KC_DELETE);
         del_key(KC_BSPC);
+        del_key(KC_D);
+        del_key(KC_DELETE);
         send_keyboard_report();
       }
       break;
