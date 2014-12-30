@@ -135,8 +135,8 @@ uint8_t matrix_key_count(void)
 }
 
 /* Column pin configuration
- * col: 0   1   2   3   4   5   6   7
- * pin: PF0 PF1 PF4 PF5 PF6 PF7 PB6 PB5
+ * col: 0   1   2   3   4   5   6   7   8
+ * pin: F0  F1  F4  F5  F6  F7  B6  B5  D5
  */
 
 static void  init_cols(void)
@@ -145,6 +145,8 @@ static void  init_cols(void)
     PORTF |=  0b11110011;
     DDRB  &= ~0b01100000;
     PORTB |=  0b01100000;
+    DDRD  &= ~0b00100000;
+    PORTD |=  0b00100000;
 }
 
 static matrix_row_t read_cols(void)
@@ -156,11 +158,12 @@ static matrix_row_t read_cols(void)
            (PINF&(1<<6) ? 0 : (1<<4)) |
            (PINF&(1<<7) ? 0 : (1<<5)) |
            (PINB&(1<<6) ? 0 : (1<<6)) |
-           (PINB&(1<<5) ? 0 : (1<<7));
+           (PINB&(1<<5) ? 0 : (1<<7)) |
+           (PIND&(1<<5) ? 0 : (1<<8)) ;
 }
 
 /* Row pin configuration
- * row: 0   1   2   3   4   5   6   7
+ * row: 0   1   2   3   4   5   6   7  10  11
  * pin: 3   
 */
 static void unselect_rows(void)
@@ -169,8 +172,8 @@ static void unselect_rows(void)
     PORTB &= ~0b10001111;
     DDRD  &= ~0b00001111;
     PORTD &= ~0b00001111;
-    DDRC  &= ~0b01000000;
-    PORTC &= ~0b01000000;
+    DDRC  &= ~0b11000000;
+    PORTC &= ~0b11000000;
 }
 
 static void select_row(uint8_t row)
@@ -215,6 +218,10 @@ static void select_row(uint8_t row)
         case 9:
             DDRC  |= (1<<6);
             PORTC &= ~(1<<6);
+            break;
+        case 10:
+            DDRC  |= (1<<7);
+            PORTC &= ~(1<<7);
             break;
     }
 }
