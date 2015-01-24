@@ -445,6 +445,8 @@ Configuring the LEDs
 First you need to compile your source.
 
 ```shell
+# Setting the path is a hack and pretty specific to my own setup. I'm only putting it here so I don't forget.
+PATH=/Applications/Arduino.app/Contents/Resources/Java/hardware/tools/avr/bin:${PATH}
 cd keyboards/ml62
 make clean
 make
