@@ -1,4 +1,4 @@
-**THIS DOCUMENT IS A WORK IN PROGRESS. THERE WILL BE ERRORS.**
+** THIS PROJECT HAS BEEN SUPERSEDED BY [ML67](https://github.com/jonhiggs/ml67/). Generic Minila stuff is on the master branch. Things specific to my ML62 are on the [ml62 branch](https://github.com/jonhiggs/ml67/tree/ml62). **
 
 ![ML62](./doc/images/ml62.png)
 
